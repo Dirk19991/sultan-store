@@ -5,7 +5,7 @@ import LookingGlass from '../../../components/LookingGlass';
 import OrderCall from '../../../components/OrderCall';
 import SemiBold from '../../../components/SemiBold';
 import YellowButton from '../../../components/YellowButton';
-import useMediaQuery from '../../../hooks/usemediaquery';
+import useMediaQuery from '../../../hooks/useMediaQuery';
 
 const Wrapper = styled.div`
   min-height: 109px;

@@ -10,6 +10,10 @@ const Line = styled.div`
   opacity: 0.2;
 `;
 
+const BottomLine = styled(Line)`
+  margin-bottom: 46px;
+`;
+
 function Header() {
   return (
     <>
@@ -20,7 +24,7 @@ function Header() {
       <Container>
         <LowerHeader />
       </Container>
-      <Line />
+      <BottomLine />
     </>
   );
 }
