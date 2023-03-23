@@ -1,6 +1,7 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import Container from '../../components/Container';
-import { useGoodsContext } from '../../context/GoodsContextProvider';
+import { Item, useGoodsContext } from '../../context/GoodsContextProvider';
 import AdminItem from './AdminItem';
 
 const Wrapper = styled.div`
@@ -24,16 +25,30 @@ const AdminSubheader = styled.h2`
   line-height: 120%;
   color: var(--black);
   text-transform: uppercase;
+  margin-bottom: 20px;
 `;
 
 const GoodsWrapper = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 20px;
+`;
+
+const Select = styled.select`
+  width: 400px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
 `;
 
 function Admin() {
   const { goods, addItem, removeItem } = useGoodsContext();
+  const [selectedItem, setSelectedItem] = useState<Item | null>(null);
+
+  const selectedItemHandler = (value: string) => {
+    const item = goods.find((item) => item.id === +value) || goods[0];
+    setSelectedItem(item);
+  };
 
   return (
     <Container>
@@ -42,9 +57,22 @@ function Admin() {
         <AdminSubheader>Текущий список товаров:</AdminSubheader>
 
         <GoodsWrapper>
-          {goods.map((item) => (
-            <AdminItem key={item.id} item={item} />
-          ))}
+          <Select
+            onChange={(e) => selectedItemHandler(e.target.value)}
+            defaultValue='choose'
+            name='select'
+            id=''
+          >
+            <option disabled value='choose'>
+              Выберите товар
+            </option>
+            {goods.map((elem) => (
+              <option key={elem.id} value={elem.id}>
+                {elem.title}
+              </option>
+            ))}
+          </Select>
+          <AdminItem item={selectedItem} />
         </GoodsWrapper>
       </Wrapper>
     </Container>
