@@ -6,7 +6,6 @@ const GridWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 21px;
-  margin-left: 357px;
   margin-top: 10px;
 `;
 
@@ -16,7 +15,7 @@ function CatalogueGrid() {
   return (
     <GridWrapper>
       {goods.map((item) => (
-        <GridCell item={item} />
+        <GridCell key={item.id} item={item} />
       ))}
     </GridWrapper>
   );
