@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Light from '../../../components/Light';
+import PageHeader from '../../../components/PageHeader';
 import { CareType } from '../../../context/GoodsContextProvider';
 import { ICatalogueParameters, Selectors } from '../Catalogue';
 
@@ -36,14 +37,6 @@ const DashedLine = styled.div`
 const BreadcrumbsCurrent = styled(Light)`
   font-size: 14px;
   opacity: 0.5;
-`;
-
-const CategoryHeader = styled.h1`
-  font-weight: 500;
-  font-size: 40px;
-  line-height: 120%;
-  color: var(--black);
-  text-transform: uppercase;
 `;
 
 const SortingGroup = styled.div`
@@ -130,7 +123,7 @@ function CatalogueHeader(props: ICatalogueParameters) {
         <BreadcrumbsCurrent>Косметика и гигиена</BreadcrumbsCurrent>
       </Breadcrumbs>
       <Flex>
-        <CategoryHeader>Косметика и гигиена</CategoryHeader>
+        <PageHeader>Косметика и гигиена</PageHeader>
         <SortingGroup>
           <span>Сортировка:</span>
           <Select

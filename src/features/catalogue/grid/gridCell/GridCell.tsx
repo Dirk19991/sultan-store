@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import YellowButton from '../../../../components/YellowButton';
 import { Item } from '../../../../context/GoodsContextProvider';
+import { useShoppingCartContext } from '../../../../context/ShoppingCartProvider';
 
 interface IGridCell {
   item: Item;
@@ -91,11 +92,22 @@ const CartButton = styled(YellowButton)`
   letter-spacing: 0.15em;
   text-transform: uppercase;
   margin-right: 70px;
+  cursor: pointer;
+  transition: all 0.2s;
+  transform: translateZ(0);
+
+  &:hover {
+    background-color: rgb(248, 180, 45);
+  }
+
+  &:active {
+    transform: scale(1.1);
+  }
 `;
 
 const CartText = styled.div`
   margin-right: -3px;
-  margin-top: -2px;
+  margin-top: 2px;
 `;
 
 const ShoppingCart = styled.div`
@@ -104,6 +116,8 @@ const ShoppingCart = styled.div`
 
 function GridCell(props: IGridCell) {
   const { item } = props;
+
+  const { items, addItem, removeItem } = useShoppingCartContext();
 
   const iconSource =
     item.sizeType === 'weight' ? './icons/box.svg' : './icons/bottle.svg';
@@ -133,7 +147,7 @@ function GridCell(props: IGridCell) {
       </Brand>
       <PriceButtonWrapper>
         <Price>{item.price} ₸</Price>
-        <CartButton>
+        <CartButton onClick={() => addItem(item)}>
           <CartText>В корзину</CartText>
           <ShoppingCart>
             <img src='./icons/shoppingCartWhite.svg' alt='shoppingCart' />

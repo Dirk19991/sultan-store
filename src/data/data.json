@@ -94,8 +94,8 @@
     "price": "100,79",
     "description": "Бальзам Gliss Kur «Экстремальный Oil-эликсир» интенсивно питает и восстанавливает структуру волос. Во время применения эликсира поврежденные участки сухих и ослабленных волос заполняются, уменьшается их ломкость, появляются живой блеск и ослепительное сияние – все благодаря специально разработанной формуле, которая активно питает и укрепляет структуру каждого волоса.",
     "careType": ["hair"],
-    "imageSmall": "./goods/blackPearlAll/blackPearlAll_small.jpeg",
-    "imageBig": "./goods/blackPearlAll/blackPearlAll_big.jpeg"
+    "imageSmall": "./goods/glissKurExtreme/glissKurExtreme_small.jpeg",
+    "imageBig": "./goods/glissKurExtreme/glissKurExtreme_big.jpeg"
   },
   {
     "id": 8,

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Input from '../../../components/Input';
 import Light from '../../../components/Light';
@@ -5,7 +6,9 @@ import LookingGlass from '../../../components/LookingGlass';
 import OrderCall from '../../../components/OrderCall';
 import SemiBold from '../../../components/SemiBold';
 import YellowButton from '../../../components/YellowButton';
+import { useShoppingCartContext } from '../../../context/ShoppingCartProvider';
 import useMediaQuery from '../../../hooks/useMediaQuery';
+import getCartSum from '../../../utils/getCartSum';
 
 const Wrapper = styled.div`
   min-height: 109px;
@@ -17,6 +20,11 @@ const Wrapper = styled.div`
 
 const Logo = styled.div`
   margin-right: 38px;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.02);
+  }
 `;
 
 const Catalog = styled(YellowButton)``;
@@ -77,6 +85,11 @@ const ShoppingCartWrapper = styled.div`
   align-items: center;
   gap: 28px;
   white-space: nowrap;
+  cursor: pointer;
+
+  &:hover > div > img {
+    transform: scale(1.05);
+  }
 `;
 
 const ShoppingCartInfo = styled.div`
@@ -93,12 +106,17 @@ const ShoppingCartSum = styled(SemiBold)`
 function LowerHeader() {
   const priceMedia = useMediaQuery('(min-width: 1377px)');
   const callMedia = useMediaQuery('(min-width: 1177px)');
+  const { items } = useShoppingCartContext();
+
+  const sum = items.length === 0 ? 0 : getCartSum(items);
 
   return (
     <Wrapper>
-      <Logo>
-        <img src='./icons/sultanLogo.svg' alt='sultanLogo' />
-      </Logo>
+      <Link to='/'>
+        <Logo>
+          <img src='./icons/sultanLogo.svg' alt='sultanLogo' />
+        </Logo>
+      </Link>
       <Catalog>
         <span>Каталог</span>
         <div>
@@ -133,16 +151,17 @@ function LowerHeader() {
           </div>
         </PriceList>
       )}
-
-      <ShoppingCartWrapper>
-        <CartIcon>
-          <img src='./icons/shoppingCart.svg' alt='shoppingCart' />
-        </CartIcon>
-        <ShoppingCartInfo>
-          <Light>Корзина</Light>
-          <ShoppingCartSum>1211222 ₸</ShoppingCartSum>
-        </ShoppingCartInfo>
-      </ShoppingCartWrapper>
+      <Link to='./cart'>
+        <ShoppingCartWrapper>
+          <CartIcon>
+            <img src='./icons/shoppingCart.svg' alt='shoppingCart' />
+          </CartIcon>
+          <ShoppingCartInfo>
+            <Light>Корзина</Light>
+            <ShoppingCartSum>{sum} ₸</ShoppingCartSum>
+          </ShoppingCartInfo>
+        </ShoppingCartWrapper>
+      </Link>
     </Wrapper>
   );
 }

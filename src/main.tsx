@@ -10,6 +10,8 @@ import {
 import Catalogue from './features/catalogue/Catalogue';
 import GoodsContextProvider from './context/GoodsContextProvider';
 import Admin from './features/admin/Admin';
+import ShoppingCart from './features/shoppingCart/ShoppingCart';
+import ShoppingCartProvider from './context/ShoppingCartProvider';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +27,10 @@ const router = createBrowserRouter([
         element: <Admin />,
       },
       {
+        path: '/cart',
+        element: <ShoppingCart />,
+      },
+      {
         path: '/',
         element: <Navigate to='/cosmetics' replace />,
       },
@@ -34,8 +40,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <GoodsContextProvider>
-    <React.StrictMode>
-      <RouterProvider router={router} />
-    </React.StrictMode>
+    <ShoppingCartProvider>
+      <React.StrictMode>
+        <RouterProvider router={router} />
+      </React.StrictMode>
+    </ShoppingCartProvider>
   </GoodsContextProvider>
 );
