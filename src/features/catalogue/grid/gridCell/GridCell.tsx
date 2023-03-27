@@ -10,6 +10,7 @@ const StyledCell = styled.div`
   position: relative;
   width: 326px;
   min-height: 490px;
+
   padding: 5px 23px;
   padding-bottom: 70px;
   display: flex;

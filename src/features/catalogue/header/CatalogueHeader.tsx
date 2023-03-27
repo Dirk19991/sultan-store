@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Light from '../../../components/Light';
+import { CareType } from '../../../context/GoodsContextProvider';
+import { ICatalogueParameters, Selectors } from '../Catalogue';
 
 const Wrapper = styled.div`
   margin-left: 14px;
@@ -84,10 +86,13 @@ const Filter = styled.div`
 
 const FilterElement = styled.div<{
   width?: string;
+  name: CareType | '';
+  careType: CareType | '';
 }>`
   padding: 10px;
   height: 70px;
   min-width: ${(props) => (props.width ? props.width : '100px')};
+  font-weight: ${(props) => (props.name === props.careType ? '700' : '400')};
   background: var(--white);
   box-shadow: 0px 15px 70px -11px rgba(43, 28, 1, 0.08);
   border-radius: 10px;
@@ -96,10 +101,26 @@ const FilterElement = styled.div<{
   justify-content: center;
   align-items: center;
   text-align: center;
+  cursor: pointer;
 `;
 
-function CatalogueHeader() {
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
+function CatalogueHeader(props: ICatalogueParameters) {
+  const { careType, setCareType, selectedSort, setSelectedSort } = props;
+
+  const filterOptions: { name: CareType | ''; text: string; width: string }[] =
+    [
+      { name: 'body', text: 'Уход <br /> за телом', width: '100px' },
+      { name: 'hands', text: ' Уход <br /> за руками', width: '100px' },
+      { name: 'feet', text: 'Уход <br /> за ногами', width: '100px' },
+      { name: 'face', text: 'Уход <br /> за лицом', width: '100px' },
+      { name: 'hair', text: 'Уход <br /> за волосами', width: '120px' },
+      { name: 'tan', text: 'Средства <br /> для загара', width: '120px' },
+      { name: 'shaving', text: 'Средства <br /> для бритья', width: '120px' },
+      { name: 'gift', text: 'Подарочные наборы', width: '120px' },
+      { name: 'hygiene', text: 'Гигиеническая продукция', width: '120px' },
+      { name: 'mouth', text: 'Гигиена полости рта', width: '140px' },
+      { name: 'paper', text: 'Бумажная продукция', width: '120px' },
+    ];
 
   return (
     <Wrapper>
@@ -112,40 +133,29 @@ function CatalogueHeader() {
         <CategoryHeader>Косметика и гигиена</CategoryHeader>
         <SortingGroup>
           <span>Сортировка:</span>
-          <Select onChange={(e) => setSelectedOption(e.target.value)}>
-            <option value='priceUp'>Цена &#9652;</option>
+          <Select
+            onChange={(e) => setSelectedSort(e.target.value as Selectors)}
+          >
             <option value='priceDown'>Цена &#9662;</option>
+            <option value='priceUp'>Цена &#9652;</option>
             <option value='nameUp'>Название &#9652;</option>
             <option value='nameDown'>Название &#9662;</option>
           </Select>
         </SortingGroup>
       </Flex>
       <Filter>
-        <FilterElement>
-          Уход <br /> за телом
-        </FilterElement>
-        <FilterElement>
-          Уход <br /> за руками
-        </FilterElement>
-        <FilterElement>
-          Уход <br /> за ногами
-        </FilterElement>
-        <FilterElement>
-          Уход <br /> за лицом
-        </FilterElement>
-        <FilterElement width='120px'>
-          Уход <br /> за волосами
-        </FilterElement>
-        <FilterElement width='120px'>
-          Средства <br /> для загара
-        </FilterElement>
-        <FilterElement width='120px'>
-          Средства <br /> для бритья
-        </FilterElement>
-        <FilterElement width='120px'>Подарочные наборы</FilterElement>
-        <FilterElement width='140px'>Гигиеническая продукция</FilterElement>
-        <FilterElement width='120px'>Гигиена полости рта</FilterElement>
-        <FilterElement width='120px'>Бумажная продукция</FilterElement>
+        {filterOptions.map((option) => (
+          <FilterElement
+            name={option.name}
+            careType={careType}
+            onClick={() =>
+              setCareType((prev) => (prev === option.name ? '' : option.name))
+            }
+            dangerouslySetInnerHTML={{ __html: option.text }}
+            key={option.name}
+            width={option.width}
+          ></FilterElement>
+        ))}
       </Filter>
     </Wrapper>
   );

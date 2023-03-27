@@ -1,5 +1,12 @@
 import styled from 'styled-components';
-import { useGoodsContext } from '../../../context/GoodsContextProvider';
+import {
+  CareType,
+  Item,
+  useGoodsContext,
+} from '../../../context/GoodsContextProvider';
+import filterGoods from '../../../utils/filterGoods';
+import sortGoods from '../../../utils/sortGoods';
+import { ICatalogueParameters, Selectors } from '../Catalogue';
 import GridCell from './gridCell/GridCell';
 
 const GridWrapper = styled.div`
@@ -9,12 +16,31 @@ const GridWrapper = styled.div`
   margin-top: 10px;
 `;
 
-function CatalogueGrid() {
+function CatalogueGrid(props: ICatalogueParameters) {
   const { goods } = useGoodsContext();
+  const {
+    min,
+    max,
+    manufacturer,
+    checkedManufacturers,
+    careType,
+    selectedSort,
+  } = props;
+
+  const filteredGoods = filterGoods(
+    goods,
+    min,
+    max,
+    manufacturer,
+    checkedManufacturers,
+    careType
+  );
+
+  const sortedGoods = sortGoods(filteredGoods, selectedSort);
 
   return (
     <GridWrapper>
-      {goods.map((item) => (
+      {sortedGoods.map((item) => (
         <GridCell key={item.id} item={item} />
       ))}
     </GridWrapper>

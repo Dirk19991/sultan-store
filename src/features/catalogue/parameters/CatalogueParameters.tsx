@@ -3,28 +3,21 @@ import styled from 'styled-components';
 import { NumericFormat } from 'react-number-format';
 import Input from '../../../components/Input';
 import LookingGlass from '../../../components/LookingGlass';
-import { useGoodsContext } from '../../../context/GoodsContextProvider';
+import {
+  CareType,
+  useGoodsContext,
+} from '../../../context/GoodsContextProvider';
 import checkboxSorter from '../../../utils/checkboxSorter';
 import Checkbox from '@mui/material/Checkbox';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
-
-interface ICatalogueParameterer {
-  min: number;
-  max: number;
-  manufacturer: string;
-  checkedManufacturers: string[];
-  setMin: Dispatch<SetStateAction<number>>;
-  setMax: Dispatch<SetStateAction<number>>;
-  setManufacturer: Dispatch<SetStateAction<string>>;
-  setCheckedManufacturers: Dispatch<SetStateAction<string[]>>;
-}
+import { ICatalogueParameters } from '../Catalogue';
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   min-width: 250px;
-  margin-left: 16px;
+  margin-left: 14px;
   margin-top: 30px;
 `;
 
@@ -107,6 +100,7 @@ const ShowAll = styled.div`
   font-size: 12px;
   line-height: 150%;
   cursor: pointer;
+  margin-bottom: 17px;
 
   > span {
     font-size: 8px;
@@ -114,7 +108,32 @@ const ShowAll = styled.div`
   }
 `;
 
-function CatalogueParameters(props: ICatalogueParameterer) {
+const DashedLine = styled.div`
+  width: 238px;
+  height: 0px;
+  border: 1px dashed rgba(63, 78, 101, 0.1);
+  margin-bottom: 15px;
+`;
+
+const Filter = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+`;
+
+const FilterOption = styled.div<{
+  name: CareType | '';
+  careType: CareType | '';
+}>`
+  color: var(--black);
+  font-weight: ${(props) => (props.name === props.careType ? '700' : '500')};
+  font-size: 15.5px;
+  line-height: 150%;
+  text-transform: uppercase;
+  cursor: pointer;
+`;
+
+function CatalogueParameters(props: ICatalogueParameters) {
   const {
     min,
     max,
@@ -124,6 +143,8 @@ function CatalogueParameters(props: ICatalogueParameterer) {
     setMax,
     setManufacturer,
     setCheckedManufacturers,
+    careType,
+    setCareType,
   } = props;
 
   const [showAll, setShowAll] = useState(false);
@@ -132,7 +153,20 @@ function CatalogueParameters(props: ICatalogueParameterer) {
 
   const sortedGoods = checkboxSorter(goods);
 
-  console.log(checkedManufacturers);
+  const filterOptions: { name: CareType | ''; text: string; width: string }[] =
+    [
+      { name: 'body', text: 'Уход за телом', width: '100px' },
+      { name: 'hands', text: ' Уход  за руками', width: '100px' },
+      { name: 'feet', text: 'Уход за ногами', width: '100px' },
+      { name: 'face', text: 'Уход  за лицом', width: '100px' },
+      { name: 'hair', text: 'Уход за волосами', width: '120px' },
+      { name: 'tan', text: 'Средства  для загара', width: '120px' },
+      { name: 'shaving', text: 'Средства для бритья', width: '120px' },
+      { name: 'hygiene', text: 'Гигиеническая продукция', width: '120px' },
+      { name: 'mouth', text: 'Гигиена полости рта', width: '140px' },
+      { name: 'gift', text: 'Подарочные наборы', width: '120px' },
+      { name: 'paper', text: 'Бумажная продукция', width: '120px' },
+    ];
 
   const setMinHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const input = e.target.value.replaceAll(' ', '');
@@ -243,6 +277,21 @@ function CatalogueParameters(props: ICatalogueParameterer) {
       <ShowAll onClick={() => setShowAll((prev) => !prev)}>
         Показать все <span>{showAll ? '▲' : '▼'}</span>
       </ShowAll>
+      <DashedLine />
+      <Filter>
+        {filterOptions.map((option) => (
+          <FilterOption
+            onClick={() =>
+              setCareType((prev) => (prev === option.name ? '' : option.name))
+            }
+            key={option.name}
+            careType={careType}
+            name={option.name}
+          >
+            {option.text}
+          </FilterOption>
+        ))}
+      </Filter>
     </Wrapper>
   );
 }

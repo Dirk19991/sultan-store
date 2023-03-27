@@ -10,7 +10,9 @@ export type CareType =
   | 'hair'
   | 'gift'
   | 'shaving'
-  | 'mouth';
+  | 'mouth'
+  | 'tan'
+  | 'paper';
 
 export interface Item {
   id: number;
