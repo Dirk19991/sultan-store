@@ -115,8 +115,8 @@ function CatalogueHeader(props: ICatalogueParameters) {
       { name: 'tan', text: 'Средства <br /> для загара', width: '120px' },
       { name: 'shaving', text: 'Средства <br /> для бритья', width: '120px' },
       { name: 'gift', text: 'Подарочные наборы', width: '120px' },
-      { name: 'hygiene', text: 'Гигиеническая продукция', width: '120px' },
-      { name: 'mouth', text: 'Гигиена полости рта', width: '140px' },
+      { name: 'hygiene', text: 'Гигиеническая продукция', width: '140px' },
+      { name: 'mouth', text: 'Гигиена полости рта', width: '120px' },
       { name: 'paper', text: 'Бумажная продукция', width: '120px' },
     ];
 

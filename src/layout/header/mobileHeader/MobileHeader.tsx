@@ -22,7 +22,9 @@ const Burger = styled.div`
   margin-top: -2px;
 `;
 
-const Logo = styled.div``;
+const Logo = styled.div`
+  margin-left: 2px;
+`;
 
 const ShoppingCart = styled.div`
   position: relative;
