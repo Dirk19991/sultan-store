@@ -1,6 +1,8 @@
 import { CareType } from './../context/GoodsContextProvider';
 import { Item } from '../context/GoodsContextProvider';
 
+// применяются сразу все выбранные фильтры по очереди
+
 export default function filterGoods(
   goods: Item[],
   min: number = 0,

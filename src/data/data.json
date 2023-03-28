@@ -108,8 +108,8 @@
     "price": "102,99",
     "description": "Одноразовая женская бритва Gillette Blue 2, в упаковке 5 шт. Одноразовые бритвы для женщин Blue 2. Качественное бритье по доступной цене. Два лезвия обеспечивают максимально комфортное, бережное и результативно чистое бритье. Увлажняющая полоска обеспечивает плавное скольжение и помогает защитить кожу во время бритья.",
     "careType": ["shaving"],
-    "imageSmall": "./goods/glissKurExtreme/glissKurExtreme_small.jpeg",
-    "imageBig": "./goods/glissKurExtreme/glissKurExtreme_big.jpeg"
+    "imageSmall": "./goods/giletteBlue/giletteBlue_small.jpeg",
+    "imageBig": "./goods/giletteBlue/giletteBlue_big.jpeg"
   },
   {
     "id": 9,

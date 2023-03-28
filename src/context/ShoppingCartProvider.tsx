@@ -8,16 +8,16 @@ export interface ShoppingCartItem extends Item {
 
 interface IShoppingCartContext {
   items: ShoppingCartItem[] | [];
-  addItem: (object: Item) => void;
-  removeItem: (id: number) => void;
-  decreaseItems: (object: Item) => void;
+  addCartItem: (object: Item) => void;
+  removeCartItem: (id: number) => void;
+  decreaseCartItems: (object: Item) => void;
 }
 
 export const ShoppingCartContext = createContext<IShoppingCartContext>({
   items: [],
-  addItem: (object) => [],
-  removeItem: (id) => [],
-  decreaseItems: (object) => [],
+  addCartItem: (object) => [],
+  removeCartItem: (object) => [],
+  decreaseCartItems: (id) => [],
 });
 
 export const useShoppingCartContext = () => useContext(ShoppingCartContext);
@@ -25,7 +25,7 @@ export const useShoppingCartContext = () => useContext(ShoppingCartContext);
 function ShoppingCartProvider({ children }: any) {
   const [items, setItems] = useState<ShoppingCartItem[] | []>([]);
 
-  const addItem = (object: Item) => {
+  const addCartItem = (object: Item) => {
     if (items.find((item) => item.id === object.id)) {
       const mappedItems = items.map((item) => {
         if (item.id === object.id) {
@@ -46,7 +46,11 @@ function ShoppingCartProvider({ children }: any) {
     }
   };
 
-  const decreaseItems = (object: Item) => {
+  const removeCartItem = (id: number) => {
+    setItems((items) => items.filter((item) => item.id !== id));
+  };
+
+  const decreaseCartItems = (object: Item) => {
     if (items.find((item) => item.id === object.id)) {
       const mappedItems = items.map((item) => {
         if (item.id === object.id) {
@@ -64,15 +68,11 @@ function ShoppingCartProvider({ children }: any) {
     }
   };
 
-  const removeItem = (id: number) => {
-    setItems((items) => items.filter((item) => item.id !== id));
-  };
-
   const shoppingCartValue = {
     items,
-    addItem,
-    removeItem,
-    decreaseItems,
+    addCartItem,
+    removeCartItem,
+    decreaseCartItems,
   };
 
   return (

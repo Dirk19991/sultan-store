@@ -8,128 +8,31 @@ import FooterHeader from '../../components/FooterHeader';
 import YellowButton from '../../components/YellowButton';
 import OrderCall from '../../components/OrderCall';
 import Light from '../../components/Light';
-
-const Wrapper = styled.div`
-  min-height: 500px;
-  width: 100%;
-  background-color: var(--darkGrey);
-  color: var(--white);
-`;
-
-const FooterContainer = styled(Container)`
-  padding-top: 72px;
-  padding-left: 14px;
-  display: flex;
-`;
-
-const LogoColumn = styled(Column)`
-  max-width: 320px;
-  margin-right: 59px;
-`;
-
-const Logo = styled.div`
-  margin-bottom: 13px;
-`;
-
-const LogoSupply = styled.div`
-  font-size: 16px;
-  line-height: 150%;
-  margin-bottom: 45px;
-`;
-
-const LogoSubscribe = styled.div`
-  font-size: 12px;
-  line-height: 150%;
-  margin-bottom: 15px;
-`;
-
-const LogoInputWrapper = styled.div`
-  position: relative;
-`;
-
-const LogoInput = styled(Input)`
-  width: 282px;
-  background-color: var(--white);
-  opacity: 1;
-  &::placeholder {
-    color: rgba(92, 99, 112, 0.6);
-  }
-`;
-
-const Arrow = styled(LookingGlass)`
-  top: 10px;
-  right: 48px;
-`;
-
-const MenuColumn = styled(Column)`
-  margin-right: 95px;
-`;
-
-const Links = styled.ul`
-  display: flex;
-  flex-direction: column;
-  gap: 27px;
-`;
-
-const CategoriesColumn = styled(Column)`
-  margin-right: 97px;
-`;
-
-const PriceColumn = styled(Column)`
-  margin-right: 80px;
-`;
-
-const PriceButton = styled(YellowButton)`
-  width: 214px;
-  margin-top: -5px;
-  gap: 15px;
-  margin-bottom: 24px;
-
-  > div {
-    margin-top: 3px;
-    margin-right: 3px;
-  }
-`;
-
-const Messengers = styled(Column)`
-  margin-left: 6px;
-  gap: 19px;
-`;
-
-const MessengerLinks = styled.div`
-  display: flex;
-  gap: 10px;
-  margin-left: -2px;
-`;
-
-const ContactsColumn = styled(Column)``;
-
-const Phone = styled(Column)`
-  margin-bottom: 22px;
-`;
-
-const PhoneNumber = styled(SemiBold)`
-  color: white;
-  margin-top: -5px;
-  margin-bottom: 5px;
-`;
-
-const Time = styled(Light)`
-  margin-bottom: 7px;
-`;
-
-const Mail = styled(Column)`
-  margin-bottom: 25px;
-`;
-
-const MailAddress = styled(SemiBold)`
-  color: white;
-`;
-
-const Payment = styled.div`
-  display: flex;
-  gap: 5px;
-`;
+import {
+  Arrow,
+  CategoriesColumn,
+  ContactsColumn,
+  FooterContainer,
+  Links,
+  Logo,
+  LogoColumn,
+  LogoInput,
+  LogoInputWrapper,
+  LogoSubscribe,
+  LogoSupply,
+  Mail,
+  MailAddress,
+  MenuColumn,
+  MessengerLinks,
+  Messengers,
+  Payment,
+  Phone,
+  PhoneNumber,
+  PriceButton,
+  PriceColumn,
+  Time,
+  Wrapper,
+} from './Footer.style';
 
 function Footer() {
   return (

@@ -1,43 +1,13 @@
-import styled from 'styled-components';
 import Light from '../../../components/Light';
 import SemiBold from '../../../components/SemiBold';
-
-const Wrapper = styled.div`
-  min-height: 61px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-left: 10px;
-`;
-
-const Contacts = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 43px;
-`;
-
-const Address = styled.div`
-  display: flex;
-  gap: 16px;
-  align-items: center;
-`;
-
-const Column = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const Mail = styled.div`
-  display: flex;
-  gap: 16px;
-  align-items: center;
-`;
-
-const Links = styled.ul`
-  display: flex;
-  gap: 60px;
-`;
+import {
+  Address,
+  Column,
+  Contacts,
+  Links,
+  Mail,
+  Wrapper,
+} from './UpperHeader.style';
 
 function UpperHeader() {
   return (

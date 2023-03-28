@@ -1,5 +1,7 @@
 import { Item } from '../context/GoodsContextProvider';
 
+// берет все товары и формируется из них чекбоксы по производителю, учитывая количество товаров от производителя
+
 type StringNum = [string, number];
 
 type ReturnCheckboxSorter = StringNum[];

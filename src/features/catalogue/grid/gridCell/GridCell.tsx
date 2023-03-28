@@ -117,7 +117,7 @@ const ShoppingCart = styled.div`
 function GridCell(props: IGridCell) {
   const { item } = props;
 
-  const { items, addItem, removeItem } = useShoppingCartContext();
+  const { items, addCartItem } = useShoppingCartContext();
 
   const iconSource =
     item.sizeType === 'weight' ? './icons/box.svg' : './icons/bottle.svg';
@@ -147,7 +147,7 @@ function GridCell(props: IGridCell) {
       </Brand>
       <PriceButtonWrapper>
         <Price>{item.price} ₸</Price>
-        <CartButton onClick={() => addItem(item)}>
+        <CartButton onClick={() => addCartItem(item)}>
           <CartText>В корзину</CartText>
           <ShoppingCart>
             <img src='./icons/shoppingCartWhite.svg' alt='shoppingCart' />
