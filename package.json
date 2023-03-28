@@ -6,7 +6,7 @@
   "homepage": "https://dirk19991.github.io/sultan-store/",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build --base=./",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "preview": "vite preview"
