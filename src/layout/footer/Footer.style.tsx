@@ -20,7 +20,8 @@ export const FooterContainer = styled(Container)`
   display: flex;
 `;
 
-export const LogoColumn = styled(Column)`
+export const LogoColumn = styled(Column)<{ tablet: boolean }>`
+  display: ${(props) => (props.tablet ? 'none' : '')};
   max-width: 320px;
   margin-right: 59px;
 `;
@@ -100,7 +101,9 @@ export const MessengerLinks = styled.div`
   margin-left: -2px;
 `;
 
-export const ContactsColumn = styled(Column)``;
+export const ContactsColumn = styled(Column)`
+  margin-right: 20px;
+`;
 
 export const Phone = styled(Column)`
   margin-bottom: 22px;

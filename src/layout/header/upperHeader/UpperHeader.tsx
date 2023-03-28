@@ -1,5 +1,6 @@
 import Light from '../../../components/Light';
 import SemiBold from '../../../components/SemiBold';
+import useMediaQuery from '../../../hooks/useMediaQuery';
 
 import {
   Address,
@@ -11,6 +12,8 @@ import {
 } from './UpperHeader.style';
 
 function UpperHeader() {
+  const tabletMedia = useMediaQuery('(max-width: 1050px)');
+
   return (
     <Wrapper>
       <Contacts>
@@ -35,7 +38,7 @@ function UpperHeader() {
           </Column>
         </Mail>
       </Contacts>
-      <Links>
+      <Links tablet={tabletMedia}>
         <li>О компании</li>
         <li>Доставка и оплата</li>
         <li>Возврат</li>

@@ -33,12 +33,15 @@ import {
   Time,
   Wrapper,
 } from './Footer.style';
+import useMediaQuery from '../../hooks/useMediaQuery';
 
 function Footer() {
+  const tabletMedia = useMediaQuery('(max-width: 1350px)');
+
   return (
     <Wrapper>
       <FooterContainer>
-        <LogoColumn>
+        <LogoColumn tablet={tabletMedia}>
           <Logo>
             <img src='./icons/sultanLogoWhite.svg' alt='logo' />
           </Logo>

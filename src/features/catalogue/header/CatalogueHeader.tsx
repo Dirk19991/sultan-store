@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Light from '../../../components/Light';
 import PageHeader from '../../../components/PageHeader';
 import { CareType } from '../../../context/GoodsContextProvider';
+import useMediaQuery from '../../../hooks/useMediaQuery';
 import { ICatalogueParameters, Selectors } from '../Catalogue';
 
 const Wrapper = styled.div`
@@ -71,8 +72,9 @@ const Select = styled.select`
   }
 `;
 
-const Filter = styled.div`
+const Filter = styled.div<{ wrap: boolean }>`
   display: flex;
+  flex-wrap: ${(props) => (props.wrap ? 'wrap' : 'nowrap')};
   gap: 11px;
   margin-bottom: 20px;
 `;
@@ -85,6 +87,7 @@ const FilterElement = styled.div<{
   padding: 10px;
   height: 70px;
   min-width: ${(props) => (props.width ? props.width : '100px')};
+  width: ${(props) => (props.width ? props.width : '100px')};
   font-weight: ${(props) => (props.name === props.careType ? '700' : '400')};
   background: var(--white);
   box-shadow: 0px 15px 70px -11px rgba(43, 28, 1, 0.08);
@@ -99,6 +102,8 @@ const FilterElement = styled.div<{
 
 function CatalogueHeader(props: ICatalogueParameters) {
   const { careType, setCareType, selectedSort, setSelectedSort } = props;
+
+  const tabletMedia = useMediaQuery('(max-width: 1400px)');
 
   const filterOptions: { name: CareType | ''; text: string; width: string }[] =
     [
@@ -136,7 +141,7 @@ function CatalogueHeader(props: ICatalogueParameters) {
           </Select>
         </SortingGroup>
       </Flex>
-      <Filter>
+      <Filter wrap={tabletMedia}>
         {filterOptions.map((option) => (
           <FilterElement
             name={option.name}

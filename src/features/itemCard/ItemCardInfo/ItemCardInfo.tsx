@@ -355,10 +355,10 @@ function ItemCardInfo(props: IItemCardInfo) {
             Вес: <span>{currentItem.size}</span>
           </WeightChar>
           <Volume>
-            Вес: <span>{currentItem.size}</span>
+            Объем: <span>{currentItem.size}</span>
           </Volume>
           <BoxQuantity>
-            Вес: <span>{currentItem.size}</span>
+            Кол-во в коробке: <span>{currentItem.size}</span>
           </BoxQuantity>
         </Characteristics>
       )}

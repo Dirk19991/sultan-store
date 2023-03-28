@@ -32,7 +32,11 @@ export const Mail = styled.div`
   align-items: center;
 `;
 
-export const Links = styled.ul`
+export const Links = styled.ul<{ tablet: boolean }>`
+  margin-left: ${(props) => (props.tablet ? '20px' : '0')};
+  margin-right: ${(props) => (props.tablet ? '20px' : '0')};
   display: flex;
-  gap: 60px;
+  flex-wrap: wrap;
+  column-gap: ${(props) => (props.tablet ? '20px' : '60px')};
+  row-gap: 10px;
 `;

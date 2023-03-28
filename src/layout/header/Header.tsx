@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import Container from '../../components/Container';
+import useMediaQuery from '../../hooks/useMediaQuery';
 import LowerHeader from './lowerHeader/LowerHeader';
+import MobileHeader from './mobileHeader/MobileHeader';
 import UpperHeader from './upperHeader/UpperHeader';
 
 const Line = styled.div`
@@ -15,7 +17,11 @@ const BottomLine = styled(Line)`
 `;
 
 function Header() {
-  return (
+  const mobileMedia = useMediaQuery('(max-width: 900px)');
+
+  return mobileMedia ? (
+    <MobileHeader />
+  ) : (
     <>
       <Container>
         <UpperHeader />
