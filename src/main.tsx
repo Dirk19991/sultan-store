@@ -4,6 +4,7 @@ import App from './app/App';
 import './index.css';
 import {
   createBrowserRouter,
+  createHashRouter,
   Navigate,
   RouterProvider,
 } from 'react-router-dom';
@@ -14,7 +15,7 @@ import ShoppingCart from './features/shoppingCart/ShoppingCart';
 import ShoppingCartProvider from './context/ShoppingCartProvider';
 import ItemCard from './features/itemCard/ItemCard';
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: '/',
     element: <App />,
