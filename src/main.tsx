@@ -15,41 +15,36 @@ import ShoppingCart from './features/shoppingCart/ShoppingCart';
 import ShoppingCartProvider from './context/ShoppingCartProvider';
 import ItemCard from './features/itemCard/ItemCard';
 
-const router = createHashRouter(
-  [
-    {
-      path: '/',
-      element: <App />,
-      children: [
-        {
-          path: '/cosmetics',
-          element: <Catalogue />,
-        },
-
-        {
-          path: '/cosmetics/:barcode',
-          element: <ItemCard />,
-        },
-
-        {
-          path: '/admin',
-          element: <Admin />,
-        },
-        {
-          path: '/cart',
-          element: <ShoppingCart />,
-        },
-        {
-          path: '/',
-          element: <Navigate to='/cosmetics' replace />,
-        },
-      ],
-    },
-  ],
+const router = createHashRouter([
   {
-    basename: '/sultan-store',
-  }
-);
+    path: '/',
+    element: <App />,
+    children: [
+      {
+        path: '/cosmetics',
+        element: <Catalogue />,
+      },
+
+      {
+        path: '/cosmetics/:barcode',
+        element: <ItemCard />,
+      },
+
+      {
+        path: '/admin',
+        element: <Admin />,
+      },
+      {
+        path: '/cart',
+        element: <ShoppingCart />,
+      },
+      {
+        path: '/',
+        element: <Navigate to='/cosmetics' replace />,
+      },
+    ],
+  },
+]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <GoodsContextProvider>
