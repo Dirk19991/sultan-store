@@ -40,7 +40,7 @@ function Footer() {
       <FooterContainer>
         <LogoColumn>
           <Logo>
-            <img src='/icons/sultanLogoWhite.svg' alt='logo' />
+            <img src='./icons/sultanLogoWhite.svg' alt='logo' />
           </Logo>
           <LogoSupply>
             Компания «Султан» — снабжаем розничные магазины товарами <br /> "под
@@ -51,7 +51,7 @@ function Footer() {
             <LogoInput placeholder='Введите ваш E-mail' />
             <Arrow>
               <div>
-                <img src='/icons/arrow.svg' alt='arrow' />
+                <img src='./icons/arrow.svg' alt='arrow' />
               </div>
             </Arrow>
           </LogoInputWrapper>
@@ -98,17 +98,17 @@ function Footer() {
           <PriceButton>
             <span>Прайс-лист</span>
             <div>
-              <img src='/icons/download.svg' alt='download' />
+              <img src='./icons/download.svg' alt='download' />
             </div>
           </PriceButton>
           <Messengers>
             <div>Связь в мессенджерах:</div>
             <MessengerLinks>
               <div>
-                <img src='/icons/whatsapp.svg' alt='whatsapp' />
+                <img src='./icons/whatsapp.svg' alt='whatsapp' />
               </div>
               <div>
-                <img src='/icons/telegram.svg' alt='telegram' />
+                <img src='./icons/telegram.svg' alt='telegram' />
               </div>
             </MessengerLinks>
           </Messengers>
@@ -127,10 +127,10 @@ function Footer() {
 
           <Payment>
             <div>
-              <img src='/icons/visa.png' alt='visa' />
+              <img src='./icons/visa.png' alt='visa' />
             </div>
             <div>
-              <img src='/icons/mastercard.png' alt='mastercard' />
+              <img src='./icons/mastercard.png' alt='mastercard' />
             </div>
           </Payment>
         </ContactsColumn>

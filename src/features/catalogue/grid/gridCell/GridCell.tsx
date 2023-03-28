@@ -164,7 +164,7 @@ function GridCell(props: IGridCell) {
         <CartButton onClick={() => addCartItem(item)}>
           <CartText>В корзину</CartText>
           <ShoppingCart>
-            <img src='/icons/shoppingCartWhite.svg' alt='shoppingCart' />
+            <img src='./icons/shoppingCartWhite.svg' alt='shoppingCart' />
           </ShoppingCart>
         </CartButton>
       </PriceButtonWrapper>

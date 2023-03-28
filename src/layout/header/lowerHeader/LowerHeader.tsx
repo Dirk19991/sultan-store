@@ -41,19 +41,19 @@ function LowerHeader() {
     <Wrapper>
       <Link to='/'>
         <Logo>
-          <img src='/icons/sultanLogo.svg' alt='sultanLogo' />
+          <img src='./icons/sultanLogo.svg' alt='sultanLogo' />
         </Logo>
       </Link>
       <Catalog>
         <span>Каталог</span>
         <div>
-          <img src='/icons/catalogue.svg' alt='catalogue' />
+          <img src='./icons/catalogue.svg' alt='catalogue' />
         </div>
       </Catalog>
       <InputWrapper>
         <Input placeholder='Поиск...'></Input>
         <LookingGlass>
-          <img src='/icons/lookingGlass.svg' alt='lookingGlass' />
+          <img src='./icons/lookingGlass.svg' alt='lookingGlass' />
         </LookingGlass>
       </InputWrapper>
       {callMedia && (
@@ -64,7 +64,7 @@ function LowerHeader() {
             <OrderCall>Заказать звонок</OrderCall>
           </CallInfo>
           <CallImage>
-            <img src='/icons/call.png' alt='call' />
+            <img src='./icons/call.png' alt='call' />
           </CallImage>
           <GreenCircle />
         </CallWrapper>
@@ -74,7 +74,7 @@ function LowerHeader() {
         <PriceList>
           <span>Прайс-лист</span>
           <div>
-            <img src='/icons/download.svg' alt='download' />
+            <img src='./icons/download.svg' alt='download' />
           </div>
         </PriceList>
       )}
@@ -82,7 +82,7 @@ function LowerHeader() {
       <Link to='./cart'>
         <ShoppingCartWrapper>
           <CartIcon>
-            <img src='/icons/shoppingCart.svg' alt='shoppingCart' />
+            <img src='./icons/shoppingCart.svg' alt='shoppingCart' />
             <YellowCircle>{quantity}</YellowCircle>
           </CartIcon>
           <ShoppingCartInfo>

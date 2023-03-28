@@ -77,8 +77,8 @@ function ShoppingCart() {
           {items.map((item) => {
             const iconSource =
               item.sizeType === 'weight'
-                ? '/icons/box.svg'
-                : '/icons/bottle.svg';
+                ? './icons/box.svg'
+                : './icons/bottle.svg';
 
             return (
               <React.Fragment key={item.id}>

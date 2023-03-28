@@ -261,7 +261,9 @@ function ItemCardInfo(props: IItemCardInfo) {
   };
 
   const iconSource =
-    currentItem?.sizeType === 'weight' ? '/icons/box.svg' : '/icons/bottle.svg';
+    currentItem?.sizeType === 'weight'
+      ? './icons/box.svg'
+      : './icons/bottle.svg';
 
   return (
     <Wrapper>
@@ -285,13 +287,13 @@ function ItemCardInfo(props: IItemCardInfo) {
         <CartButton onClick={() => addCartItem(currentItem, itemsNumber)}>
           <CartText>В корзину</CartText>
           <ShoppingCart>
-            <img src='/icons/shoppingCartSmall.svg' alt='shoppingCart' />
+            <img src='./icons/shoppingCartSmall.svg' alt='shoppingCart' />
           </ShoppingCart>
         </CartButton>
       </Flex>
       <Flex>
         <ShareButton>
-          <img src='/icons/share.svg' alt='share' />
+          <img src='./icons/share.svg' alt='share' />
         </ShareButton>
         <FreeShipping>
           <div>
@@ -302,7 +304,7 @@ function ItemCardInfo(props: IItemCardInfo) {
         <PriceList>
           <div>Прайс-лист</div>
           <DownloadIcon>
-            <img src='/icons/downloadBlack.svg' alt='download' />
+            <img src='./icons/downloadBlack.svg' alt='download' />
           </DownloadIcon>
         </PriceList>
       </Flex>

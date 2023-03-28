@@ -10,8 +10,8 @@
     "price": "48,76",
     "description": "Новые антиперспиранты от Rexona разработаны специально для молодых и активных. Они надежно контролируют пот и неприятный запах, а микс увлажняющих компонентов, в состав которого входит витамин Е, способствует увлажнению и восстановлению кожи.",
     "careType": ["hygiene"],
-    "imageSmall": "/goods/rexonaDeodorant/rexonaDeodorant_small.jpeg",
-    "imageBig": "/goods/rexonaDeodorant/rexonaDeodorant_big.jpeg"
+    "imageSmall": "./goods/rexonaDeodorant/rexonaDeodorant_small.jpeg",
+    "imageBig": "./goods/rexonaDeodorant/rexonaDeodorant_big.jpeg"
   },
   {
     "id": 2,
@@ -24,8 +24,8 @@
     "price": "108,41",
     "description": "Подходит для комбинированной и склонной к жирности кожи с расширенными порами. Для создания густого мусса достаточно одного нажатия. Густая и упругая пена содержит миллионы мельчайших пузырьков, обогащенных экстрактом гамамелиса вирджинского, для нежного удаления загрязнений и избытка кожного сала из пор.",
     "careType": ["face"],
-    "imageSmall": "/goods/blackPearlGel/blackPearlGel_small.jpeg",
-    "imageBig": "/goods/blackPearlGel/blackPearlGel_big.jpeg"
+    "imageSmall": "./goods/blackPearlGel/blackPearlGel_small.jpeg",
+    "imageBig": "./goods/blackPearlGel/blackPearlGel_big.jpeg"
   },
   {
     "id": 3,
@@ -38,8 +38,8 @@
     "price": "60",
     "description": "Черный жемчуг для всех типов кожи – крем для борьбы с возрастными изменениями, учитывающий потребности кожи женщин и мужчин старше 30 лет.",
     "careType": ["face", "body", "feet", "hands"],
-    "imageSmall": "/goods/blackPearlAll/blackPearlAll_small.jpeg",
-    "imageBig": "/goods/blackPearlAll/blackPearlAll_big.jpeg"
+    "imageSmall": "./goods/blackPearlAll/blackPearlAll_small.jpeg",
+    "imageBig": "./goods/blackPearlAll/blackPearlAll_big.jpeg"
   },
   {
     "id": 4,
@@ -52,8 +52,8 @@
     "price": "52,99",
     "description": "Мочевина и дополнительные активные компоненты - масло оливы и кокоса - питают кожу, восстанавливают ее мягкость и эластичность, препятствуют потере влаги. Натуральный комплекс экстрактов чистотела, коры дуба, шалфея и хвои способствует устранению потертостей и раздражений, предотвращает развитие грибковой микрофлоры и неприятного запаха ног.",
     "careType": ["feet"],
-    "imageSmall": "/goods/evoFeet/evoFeet_small.jpeg",
-    "imageBig": "/goods/evoFeet/evoFeet_big.jpeg"
+    "imageSmall": "./goods/evoFeet/evoFeet_small.jpeg",
+    "imageBig": "./goods/evoFeet/evoFeet_big.jpeg"
   },
   {
     "id": 5,
@@ -66,8 +66,8 @@
     "price": "144,22",
     "description": "Молочная кислота обеспечивает поддержание естественного уровня рН. Инновационный компонент Plantaron LC7 придает составу непревзойдённую деликатность, обеспечивает восстановление естественной влажности. Экстракт календулы помогает поддерживать защитные функции кожи интимной зоны.",
     "careType": ["body"],
-    "imageSmall": "/goods/evoSoap/evoSoap_small.jpeg",
-    "imageBig": "/goods/evoSoap/evoSoap_big.jpeg"
+    "imageSmall": "./goods/evoSoap/evoSoap_small.jpeg",
+    "imageBig": "./goods/evoSoap/evoSoap_big.jpeg"
   },
   {
     "id": 6,
@@ -80,8 +80,8 @@
     "price": "25",
     "description": "Формула с высокоинтенсивными пигментами проникает глубоко внутрь волоса, защищая цвет от вымывания. Стойкий насыщенный цвет надолго и 100% закрашивание седины. Формула и маска-уход с тройной системой ухода с кератином, пантенолом и nutri-маслом обеспечивают бережную заботу о волосах.",
     "careType": ["hair"],
-    "imageSmall": "/goods/paletteHairPaint/paletteHairPaint_small.jpeg",
-    "imageBig": "/goods/paletteHairPaint/paletteHairPaint_big.jpeg"
+    "imageSmall": "./goods/paletteHairPaint/paletteHairPaint_small.jpeg",
+    "imageBig": "./goods/paletteHairPaint/paletteHairPaint_big.jpeg"
   },
   {
     "id": 7,
@@ -94,8 +94,8 @@
     "price": "100,79",
     "description": "Бальзам Gliss Kur «Экстремальный Oil-эликсир» интенсивно питает и восстанавливает структуру волос. Во время применения эликсира поврежденные участки сухих и ослабленных волос заполняются, уменьшается их ломкость, появляются живой блеск и ослепительное сияние – все благодаря специально разработанной формуле, которая активно питает и укрепляет структуру каждого волоса.",
     "careType": ["hair"],
-    "imageSmall": "/goods/glissKurExtreme/glissKurExtreme_small.jpeg",
-    "imageBig": "/goods/glissKurExtreme/glissKurExtreme_big.jpeg"
+    "imageSmall": "./goods/glissKurExtreme/glissKurExtreme_small.jpeg",
+    "imageBig": "./goods/glissKurExtreme/glissKurExtreme_big.jpeg"
   },
   {
     "id": 8,
@@ -108,8 +108,8 @@
     "price": "102,99",
     "description": "Одноразовая женская бритва Gillette Blue 2, в упаковке 5 шт. Одноразовые бритвы для женщин Blue 2. Качественное бритье по доступной цене. Два лезвия обеспечивают максимально комфортное, бережное и результативно чистое бритье. Увлажняющая полоска обеспечивает плавное скольжение и помогает защитить кожу во время бритья.",
     "careType": ["shaving"],
-    "imageSmall": "/goods/giletteBlue/giletteBlue_small.jpeg",
-    "imageBig": "/goods/giletteBlue/giletteBlue_big.jpeg"
+    "imageSmall": "./goods/giletteBlue/giletteBlue_small.jpeg",
+    "imageBig": "./goods/giletteBlue/giletteBlue_big.jpeg"
   },
   {
     "id": 9,
@@ -122,8 +122,8 @@
     "price": "98,55",
     "description": "Четырехслойные бумажные платочки, выполненные из натуральной экологически чистой целлюлозы, подарят превосходный комфорт и ощущение чистоты и свежести.",
     "careType": ["hygiene"],
-    "imageSmall": "/goods/helloKitty/helloKitty_small.jpeg",
-    "imageBig": "/goods/helloKitty/helloKitty_big.jpeg"
+    "imageSmall": "./goods/helloKitty/helloKitty_small.jpeg",
+    "imageBig": "./goods/helloKitty/helloKitty_big.jpeg"
   },
   {
     "id": 10,
@@ -136,8 +136,8 @@
     "price": "100,11",
     "description": "Зубная паста Blend-a-med 3D White «Прохладная свежесть» — это не только освежающий эффект, но и уникальные микрогранулы, которые содержатся в категории паст 3D White. Обеспечивает качественный уход за здоровьем полости рта. Возвращает естественную белизну",
     "careType": ["mouth"],
-    "imageSmall": "/goods/blend-a-med3d/blend-a-med3d_small.jpeg",
-    "imageBig": "/goods/blend-a-med3d/blend-a-med3d_big.jpeg"
+    "imageSmall": "./goods/blend-a-med3d/blend-a-med3d_small.jpeg",
+    "imageBig": "./goods/blend-a-med3d/blend-a-med3d_big.jpeg"
   },
   {
     "id": 11,
@@ -150,8 +150,8 @@
     "price": "250",
     "description": "Специальная форма головки обеспечивает легкий и быстрый доступ к жевательным зубам для эффективного очищения. Клинически доказанный эффект очищения за 30 секунд!",
     "careType": ["mouth"],
-    "imageSmall": "/goods/biomedMiddle/biomedMiddle_small.jpeg",
-    "imageBig": "/goods/biomedMiddle/biomedMiddle_big.jpeg"
+    "imageSmall": "./goods/biomedMiddle/biomedMiddle_small.jpeg",
+    "imageBig": "./goods/biomedMiddle/biomedMiddle_big.jpeg"
   },
   {
     "id": 12,
@@ -164,8 +164,8 @@
     "price": "133,99",
     "description": "Бальзам-ополаскиватель Aussie с маслом австралийского ореха макадамия, маслом семян жожоба и маслом авокадо вдохнет жизнь в сухие, поврежденные волосы.",
     "careType": ["hair"],
-    "imageSmall": "/goods/aussieBalm/aussieBalm_small.jpeg",
-    "imageBig": "/goods/aussieBalm/aussieBalm_big.jpeg"
+    "imageSmall": "./goods/aussieBalm/aussieBalm_small.jpeg",
+    "imageBig": "./goods/aussieBalm/aussieBalm_big.jpeg"
   },
   {
     "id": 13,
@@ -178,8 +178,8 @@
     "price": "111,11",
     "description": "Крем для рук Neutrogena концентророванный. Интенсивная формула с высоким содержанием глицерина мгновенно восстанавливает и защищает даже очень сухую и потрескавшуюся кожу. Всего после 1-го применения кожа заметно мягче.",
     "careType": ["hands"],
-    "imageSmall": "/goods/neutrogenaProtect/neutrogenaProtect_small.jpeg",
-    "imageBig": "/goods/neutrogenaProtect/neutrogenaProtect_big.jpeg"
+    "imageSmall": "./goods/neutrogenaProtect/neutrogenaProtect_small.jpeg",
+    "imageBig": "./goods/neutrogenaProtect/neutrogenaProtect_big.jpeg"
   },
   {
     "id": 14,
@@ -192,8 +192,8 @@
     "price": "228,41",
     "description": "Крем-уход для потрескавшейся сухой кожи пяток помогает восстановить ступни, вновь делая их нежными и гладкими. Он отлично помогает при шелушении и растрескивании пяток, а также подходит для поддержания их красоты.",
     "careType": ["feet"],
-    "imageSmall": "/goods/novosvitHeels/novosvitHeels_small.jpeg",
-    "imageBig": "/goods/novosvitHeels/novosvitHeels_big.jpeg"
+    "imageSmall": "./goods/novosvitHeels/novosvitHeels_small.jpeg",
+    "imageBig": "./goods/novosvitHeels/novosvitHeels_big.jpeg"
   },
   {
     "id": 15,
@@ -206,8 +206,8 @@
     "price": "160",
     "description": "Содержит экстракт манго и пантенол. Аромат спелого манго улучшит настроение.",
     "careType": ["hands"],
-    "imageSmall": "/goods/beautyBombMango/beautyBombMango_small.jpeg",
-    "imageBig": "/goods/beautyBombMango/beautyBombMango_big.jpeg"
+    "imageSmall": "./goods/beautyBombMango/beautyBombMango_small.jpeg",
+    "imageBig": "./goods/beautyBombMango/beautyBombMango_big.jpeg"
   },
   {
     "id": 16,
@@ -220,8 +220,8 @@
     "price": "1000",
     "description": "Подарочный набор для настоящего мужчины от Head & Shoulders (Хед энд Шолдерс) и Old Spice (Олд Спайс) – идеальный подарок мужчине для ухода за волосами, кожей головы и телом.",
     "careType": ["gift", "hair", "body", "hygiene"],
-    "imageSmall": "/goods/headShouldersGift/headShouldersGift_small.jpeg",
-    "imageBig": "/goods/headShouldersGift/headShouldersGift_big.jpeg"
+    "imageSmall": "./goods/headShouldersGift/headShouldersGift_small.jpeg",
+    "imageBig": "./goods/headShouldersGift/headShouldersGift_big.jpeg"
   },
   {
     "id": 17,
@@ -234,8 +234,8 @@
     "price": "199,99",
     "description": "Best Ocean – свежий и энергичный аромат - настоящий подарок для современных активных людей. Аромат наполнен силой и динамикой большого города.",
     "careType": ["gift", "hygiene"],
-    "imageSmall": "/goods/cityClubGift/cityClubGift_small.jpeg",
-    "imageBig": "/goods/cityClubGift/cityClubGift_big.jpeg"
+    "imageSmall": "./goods/cityClubGift/cityClubGift_small.jpeg",
+    "imageBig": "./goods/cityClubGift/cityClubGift_big.jpeg"
   },
   {
     "id": 18,
@@ -248,7 +248,7 @@
     "price": "221,11",
     "description": "Масло Арганы – одно из самых ценных и эффективных масел в мире – его называют «жидким золотом»! Входящие в состав масла незаменимые омега-кислоты превосходно питают кожу. Крем увлажняет кожу в течение 48 часов! Благодаря высокой концентрации антиоксидантов",
     "careType": ["hands"],
-    "imageSmall": "/goods/velvetHands/velvetHands_small.jpeg",
-    "imageBig": "/goods/velvetHands/velvetHands_big.jpeg"
+    "imageSmall": "./goods/velvetHands/velvetHands_small.jpeg",
+    "imageBig": "./goods/velvetHands/velvetHands_big.jpeg"
   }
 ]
