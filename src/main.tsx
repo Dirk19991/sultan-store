@@ -12,6 +12,7 @@ import GoodsContextProvider from './context/GoodsContextProvider';
 import Admin from './features/admin/Admin';
 import ShoppingCart from './features/shoppingCart/ShoppingCart';
 import ShoppingCartProvider from './context/ShoppingCartProvider';
+import ItemCard from './features/itemCard/ItemCard';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,12 @@ const router = createBrowserRouter([
         path: '/cosmetics',
         element: <Catalogue />,
       },
+
+      {
+        path: '/cosmetics/:barcode',
+        element: <ItemCard />,
+      },
+
       {
         path: '/admin',
         element: <Admin />,

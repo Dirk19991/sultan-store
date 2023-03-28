@@ -15,6 +15,14 @@ const YellowButton = styled.div`
   border-radius: 79px;
   margin-right: 15px;
   font-family: 'Inter';
+  user-select: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  transform: translateZ(0);
+
+  &:hover {
+    background-color: rgb(248, 180, 45);
+  }
 `;
 
 export default YellowButton;

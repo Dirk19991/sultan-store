@@ -70,12 +70,38 @@ export const PriceList = styled(YellowButton)`
 
 export const CartIcon = styled.div`
   margin-top: 2px;
+  position: relative;
+`;
+
+export const YellowCircle = styled.div`
+  width: 28px;
+  height: 28px;
+  background-color: var(--yellow);
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white);
+  position: absolute;
+  top: -8px;
+  right: -18px;
+`;
+
+export const DashedLine = styled.div`
+  width: 0px;
+  height: 49px;
+  border: 1px dashed rgba(63, 78, 101, 0.1);
+  transform: translateX(-25px);
 `;
 
 export const ShoppingCartWrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 27px;
   white-space: nowrap;
   cursor: pointer;
 

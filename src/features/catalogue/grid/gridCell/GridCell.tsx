@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import YellowButton from '../../../../components/YellowButton';
 import { Item } from '../../../../context/GoodsContextProvider';
@@ -24,10 +25,21 @@ const Image = styled.div`
   height: 235px;
   display: flex;
   justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  backface-visibility: hidden;
+
+  &:hover {
+    > img {
+      width: 75%;
+      transition: all 0.3s;
+    }
+  }
 
   > img {
     width: 70%;
     object-fit: contain;
+    transition: all 0.3s;
   }
 `;
 
@@ -124,9 +136,11 @@ function GridCell(props: IGridCell) {
 
   return (
     <StyledCell>
-      <Image>
-        <img src={item.imageSmall} alt='' />
-      </Image>
+      <Link to={`/cosmetics/${item.barcode}`}>
+        <Image>
+          <img src={item.imageSmall} alt='' />
+        </Image>
+      </Link>
       <Weight>
         <div>
           <img src={iconSource} alt='size' />
@@ -150,7 +164,7 @@ function GridCell(props: IGridCell) {
         <CartButton onClick={() => addCartItem(item)}>
           <CartText>В корзину</CartText>
           <ShoppingCart>
-            <img src='./icons/shoppingCartWhite.svg' alt='shoppingCart' />
+            <img src='/icons/shoppingCartWhite.svg' alt='shoppingCart' />
           </ShoppingCart>
         </CartButton>
       </PriceButtonWrapper>

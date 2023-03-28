@@ -103,44 +103,6 @@ export const CartItemDescription = styled.div`
   line-height: 150%;
 `;
 
-export const ButtonsWrapper = styled.div`
-  display: flex;
-  gap: 18px;
-  align-items: center;
-  width: 112px;
-`;
-
-export const ItemButton = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-weight: 300;
-  font-size: 12px;
-  line-height: 15px;
-  opacity: 0.7;
-  width: 34px;
-  height: 23px;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 198, 80, 0.3) 0%,
-    rgba(254, 202, 110, 0.3) 97.25%
-  );
-  border-radius: 1000px;
-  outline: none;
-  border: none;
-  cursor: pointer;
-  transition: 0.2s;
-
-  &:hover {
-    background-color: var(--yellow);
-  }
-`;
-
-export const ItemQuantity = styled.div`
-  transform: translate(-2px);
-`;
-
 export const PriceWrapper = styled.div`
   margin-left: 44px;
   display: flex;
@@ -168,4 +130,9 @@ export const Trashbin = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+
+  transition: all 0.2s;
+  &:hover {
+    background-color: rgb(248, 180, 45);
+  }
 `;

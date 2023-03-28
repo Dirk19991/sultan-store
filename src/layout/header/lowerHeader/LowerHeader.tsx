@@ -6,7 +6,9 @@ import LookingGlass from '../../../components/LookingGlass';
 import OrderCall from '../../../components/OrderCall';
 import SemiBold from '../../../components/SemiBold';
 import { useShoppingCartContext } from '../../../context/ShoppingCartProvider';
+
 import useMediaQuery from '../../../hooks/useMediaQuery';
+import getCartQuantity from '../../../utils/getCartQuantity';
 import getCartSum from '../../../utils/getCartSum';
 import {
   CallImage,
@@ -14,6 +16,7 @@ import {
   CallWrapper,
   CartIcon,
   Catalog,
+  DashedLine,
   GreenCircle,
   InputWrapper,
   Logo,
@@ -22,6 +25,7 @@ import {
   ShoppingCartSum,
   ShoppingCartWrapper,
   Wrapper,
+  YellowCircle,
 } from './LowerHeader.style';
 
 function LowerHeader() {
@@ -32,24 +36,24 @@ function LowerHeader() {
   const { items } = useShoppingCartContext();
 
   const sum = items.length === 0 ? 0 : getCartSum(items);
-
+  const quantity = getCartQuantity(items);
   return (
     <Wrapper>
       <Link to='/'>
         <Logo>
-          <img src='./icons/sultanLogo.svg' alt='sultanLogo' />
+          <img src='/icons/sultanLogo.svg' alt='sultanLogo' />
         </Logo>
       </Link>
       <Catalog>
         <span>Каталог</span>
         <div>
-          <img src='./icons/catalogue.svg' alt='catalogue' />
+          <img src='/icons/catalogue.svg' alt='catalogue' />
         </div>
       </Catalog>
       <InputWrapper>
         <Input placeholder='Поиск...'></Input>
         <LookingGlass>
-          <img src='./icons/lookingGlass.svg' alt='lookingGlass' />
+          <img src='/icons/lookingGlass.svg' alt='lookingGlass' />
         </LookingGlass>
       </InputWrapper>
       {callMedia && (
@@ -60,7 +64,7 @@ function LowerHeader() {
             <OrderCall>Заказать звонок</OrderCall>
           </CallInfo>
           <CallImage>
-            <img src='./icons/call.png' alt='call' />
+            <img src='/icons/call.png' alt='call' />
           </CallImage>
           <GreenCircle />
         </CallWrapper>
@@ -70,14 +74,16 @@ function LowerHeader() {
         <PriceList>
           <span>Прайс-лист</span>
           <div>
-            <img src='./icons/download.svg' alt='download' />
+            <img src='/icons/download.svg' alt='download' />
           </div>
         </PriceList>
       )}
+      <DashedLine />
       <Link to='./cart'>
         <ShoppingCartWrapper>
           <CartIcon>
-            <img src='./icons/shoppingCart.svg' alt='shoppingCart' />
+            <img src='/icons/shoppingCart.svg' alt='shoppingCart' />
+            <YellowCircle>{quantity}</YellowCircle>
           </CartIcon>
           <ShoppingCartInfo>
             <Light>Корзина</Light>

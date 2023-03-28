@@ -1,10 +1,19 @@
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
 import Container from '../../components/Container';
+import {
+  ButtonsWrapper,
+  ItemButton,
+  ItemQuantity,
+} from '../../components/QuantityButtonsGroup';
+import YellowButton from '../../components/YellowButton';
 import { useShoppingCartContext } from '../../context/ShoppingCartProvider';
+import getCartQuantity from '../../utils/getCartQuantity';
+import getCartSum from '../../utils/getCartSum';
 import {
   Breadcrumbs,
   BreadcrumbsCart,
   BreadcrumbsMain,
-  ButtonsWrapper,
   CartHeader,
   CartImage,
   CartInfo,
@@ -14,18 +23,44 @@ import {
   CartItemTitle,
   DashedHorizontal,
   DashedVertical,
-  ItemButton,
   ItemPrice,
-  ItemQuantity,
   PriceWrapper,
   Trashbin,
   Weight,
   Wrapper,
 } from './ShoppingCart.style';
 
+const Order = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 50px;
+  margin-bottom: 100px;
+`;
+
+const Thanks = styled(CartHeader)`
+  margin-top: 50px;
+`;
+
 function ShoppingCart() {
-  const { items, addCartItem, decreaseCartItems, removeCartItem } =
-    useShoppingCartContext();
+  const {
+    items,
+    addCartItem,
+    decreaseCartItems,
+    removeCartItem,
+    removeAllItems,
+  } = useShoppingCartContext();
+
+  const [ordered, setOrdered] = useState(false);
+
+  useEffect(() => {
+    setOrdered(false);
+  }, []);
+
+  const makeOrder = () => {
+    setOrdered(true);
+    removeAllItems();
+  };
 
   return (
     <Container>
@@ -37,15 +72,16 @@ function ShoppingCart() {
         </Breadcrumbs>
         <CartHeader>Корзина</CartHeader>
         <DashedHorizontal />
+        {ordered && <Thanks>Спасибо за заказ!</Thanks>}
         <CartItems>
           {items.map((item) => {
             const iconSource =
               item.sizeType === 'weight'
-                ? './icons/box.svg'
-                : './icons/bottle.svg';
+                ? '/icons/box.svg'
+                : '/icons/bottle.svg';
 
             return (
-              <>
+              <React.Fragment key={item.id}>
                 <CartItem>
                   <CartImage>
                     <img src={item.imageBig} alt={item.title} />
@@ -74,7 +110,12 @@ function ShoppingCart() {
                   </ButtonsWrapper>
                   <PriceWrapper>
                     <DashedVertical height='49px' />
-                    <ItemPrice>{item.price} ₸</ItemPrice>
+                    <ItemPrice>
+                      {(
+                        parseFloat(item.price.replace(',', '.')) * item.quantity
+                      ).toFixed(2)}{' '}
+                      ₸
+                    </ItemPrice>
                     <DashedVertical height='49px' />
                   </PriceWrapper>
                   <Trashbin onClick={() => removeCartItem(item.id)}>
@@ -82,10 +123,16 @@ function ShoppingCart() {
                   </Trashbin>
                 </CartItem>
                 <DashedHorizontal />
-              </>
+              </React.Fragment>
             );
           })}
         </CartItems>
+        {getCartQuantity(items) !== 0 && (
+          <Order>
+            <YellowButton onClick={makeOrder}>Оформить заказ</YellowButton>
+            <ItemPrice>{getCartSum(items)} ₸</ItemPrice>
+          </Order>
+        )}
       </Wrapper>
     </Container>
   );

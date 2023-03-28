@@ -15,7 +15,7 @@ function UpperHeader() {
       <Contacts>
         <Address>
           <div>
-            <img src='./icons/location.svg' alt='location' />
+            <img src='/icons/location.svg' alt='location' />
           </div>
           <Column>
             <SemiBold>г. Кокчетав, ул. Ж. Ташенова 129Б</SemiBold>
@@ -24,7 +24,7 @@ function UpperHeader() {
         </Address>
         <Mail>
           <div>
-            <img src='./icons/mail.svg' alt='mail' />
+            <img src='/icons/mail.svg' alt='mail' />
           </div>
           <Column>
             <SemiBold>
