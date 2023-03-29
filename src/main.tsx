@@ -14,6 +14,7 @@ import Admin from './features/admin/Admin';
 import ShoppingCart from './features/shoppingCart/ShoppingCart';
 import ShoppingCartProvider from './context/ShoppingCartProvider';
 import ItemCard from './features/itemCard/ItemCard';
+import BurgerMenuProvider from './context/BurgerMenuProvider';
 
 const router = createHashRouter([
   {
@@ -47,11 +48,13 @@ const router = createHashRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <GoodsContextProvider>
-    <ShoppingCartProvider>
-      <React.StrictMode>
-        <RouterProvider router={router} />
-      </React.StrictMode>
-    </ShoppingCartProvider>
-  </GoodsContextProvider>
+  <BurgerMenuProvider>
+    <GoodsContextProvider>
+      <ShoppingCartProvider>
+        <React.StrictMode>
+          <RouterProvider router={router} />
+        </React.StrictMode>
+      </ShoppingCartProvider>
+    </GoodsContextProvider>
+  </BurgerMenuProvider>
 );

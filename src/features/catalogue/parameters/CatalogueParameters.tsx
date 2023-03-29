@@ -28,7 +28,7 @@ const Header = styled.h5`
   margin-bottom: 10px;
 `;
 
-const Price = styled.div`
+export const Price = styled.div`
   font-weight: 300;
   font-size: 14px;
   line-height: 150%;
@@ -39,15 +39,16 @@ const Price = styled.div`
     color: var(--black);
   }
 `;
-const InputWrapper = styled.div`
+export const InputWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
   margin-bottom: 30px;
 `;
-const NumberInput = styled(NumericFormat)`
+export const NumberInput = styled(NumericFormat)`
   text-align: center;
   font-weight: 300;
+  font-family: 'Inter';
   font-size: 12px;
   line-height: 15px;
   opacity: 0.7;
@@ -63,7 +64,7 @@ const NumberInput = styled(NumericFormat)`
   border: none;
 `;
 
-const ManufacturerHeader = styled.div`
+export const ManufacturerHeader = styled.div`
   font-weight: 500;
   font-size: 16px;
   line-height: 150%;
@@ -71,21 +72,21 @@ const ManufacturerHeader = styled.div`
   margin-bottom: 15px;
 `;
 
-const SearchWrapper = styled.div`
+export const SearchWrapper = styled.div`
   position: relative;
   margin-bottom: 10px;
 `;
 
-const ManufacturerSearch = styled(Input)`
+export const ManufacturerSearch = styled(Input)`
   width: 238px;
   padding: 13px 10px 13px 20px;
 `;
 
-const ManufacturerGlass = styled(LookingGlass)`
+export const ManufacturerGlass = styled(LookingGlass)`
   margin-right: 12px;
 `;
 
-const CheckboxWrapper = styled(FormGroup)`
+export const CheckboxWrapper = styled(FormGroup)`
   display: flex;
   flex-direction: column;
   margin-bottom: 15px;
@@ -95,7 +96,7 @@ const CheckboxWrapper = styled(FormGroup)`
   }
 `;
 
-const ShowAll = styled.div`
+export const ShowAll = styled.div`
   font-weight: 500;
   font-size: 12px;
   line-height: 150%;
@@ -115,13 +116,13 @@ const DashedLine = styled.div`
   margin-bottom: 15px;
 `;
 
-const Filter = styled.div`
+export const Filter = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
 `;
 
-const FilterOption = styled.div<{
+export const FilterOption = styled.div<{
   name: CareType | '';
   careType: CareType | '';
 }>`

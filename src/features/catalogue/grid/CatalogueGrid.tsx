@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { useBurgerMenuContext } from '../../../context/BurgerMenuProvider';
 import { useGoodsContext } from '../../../context/GoodsContextProvider';
 import filterGoods from '../../../utils/filterGoods';
 import getNumbersBefore from '../../../utils/getNumbersBefore';
@@ -8,9 +9,20 @@ import sortGoods from '../../../utils/sortGoods';
 import { ICatalogueParameters, Selectors } from '../Catalogue';
 import GridCell from './gridCell/GridCell';
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ opened: boolean }>`
+  position: relative;
   display: flex;
   flex-direction: column;
+  &::after {
+    box-shadow: ${(props) =>
+      props.opened ? 'inset 0 0 500px 100px rgba(17, 17, 17, 0.5)' : ''};
+    content: '';
+    display: ${(props) => (props.opened ? 'block' : 'none')};
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
 `;
 
 const GridWrapper = styled.div`
@@ -35,6 +47,7 @@ const Number = styled.div<{ highlighted: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
+  user-select: none;
   background: ${(props) =>
     props.highlighted
       ? 'linear-gradient(90deg, rgba(255, 198, 80, 0.3) 0%, rgba(254, 202, 110, 0.3) 97.25%)'
@@ -71,6 +84,8 @@ function CatalogueGrid(props: ICatalogueParameters) {
     careType
   );
 
+  const { openMenu, setOpenMenu } = useBurgerMenuContext();
+
   const [currentPage, setCurrentPage] = useState<number>(1);
 
   const sortedGoods = sortGoods(filteredGoods, selectedSort);
@@ -99,25 +114,27 @@ function CatalogueGrid(props: ICatalogueParameters) {
   }, [currentPage]);
 
   return (
-    <Wrapper>
+    <Wrapper onClick={() => setOpenMenu(false)} opened={openMenu}>
       <GridWrapper>
         {paginatedGoods.map((item) => (
           <GridCell key={item.id} item={item} />
         ))}
       </GridWrapper>
-      <Pagination>
-        <ArrowLeft onClick={decreasePage}>
-          <img src='./icons/arrowLeft.svg' alt='arrowLeft' />
-        </ArrowLeft>
-        {pages.map((elem, i) => (
-          <Number highlighted={i + 1 === currentPage} key={elem}>
-            {elem}
-          </Number>
-        ))}
-        <ArrowRight onClick={increasePage}>
-          <img src='./icons/arrowRight.svg' alt='arrowRight' />
-        </ArrowRight>
-      </Pagination>
+      {sortedGoods.length > 0 && (
+        <Pagination>
+          <ArrowLeft onClick={decreasePage}>
+            <img src='./icons/arrowLeft.svg' alt='arrowLeft' />
+          </ArrowLeft>
+          {pages.map((elem, i) => (
+            <Number highlighted={i + 1 === currentPage} key={elem}>
+              {elem}
+            </Number>
+          ))}
+          <ArrowRight onClick={increasePage}>
+            <img src='./icons/arrowRight.svg' alt='arrowRight' />
+          </ArrowRight>
+        </Pagination>
+      )}
     </Wrapper>
   );
 }

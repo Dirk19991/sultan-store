@@ -52,6 +52,7 @@ export const LogoInput = styled(Input)`
   opacity: 1;
   &::placeholder {
     color: rgba(92, 99, 112, 0.6);
+    font-family: 'Inter';
   }
 `;
 

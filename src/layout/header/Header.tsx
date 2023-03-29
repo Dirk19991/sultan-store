@@ -17,7 +17,7 @@ const BottomLine = styled(Line)`
 `;
 
 function Header() {
-  const mobileMedia = useMediaQuery('(max-width: 900px)');
+  const mobileMedia = useMediaQuery('(max-width: 1400px)');
 
   return mobileMedia ? (
     <MobileHeader />

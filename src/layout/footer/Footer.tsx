@@ -34,11 +34,15 @@ import {
   Wrapper,
 } from './Footer.style';
 import useMediaQuery from '../../hooks/useMediaQuery';
+import MobileFooter from './MobileFooter';
 
 function Footer() {
   const tabletMedia = useMediaQuery('(max-width: 1350px)');
+  const mobileMedia = useMediaQuery('(max-width: 1350px)');
 
-  return (
+  return mobileMedia ? (
+    <MobileFooter />
+  ) : (
     <Wrapper>
       <FooterContainer>
         <LogoColumn tablet={tabletMedia}>

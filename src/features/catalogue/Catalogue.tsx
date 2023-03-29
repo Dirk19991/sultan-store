@@ -1,10 +1,14 @@
 import { Dispatch, SetStateAction, useState } from 'react';
 import styled from 'styled-components';
 import Container from '../../components/Container';
+import MobileContainer from '../../components/MobileContainer';
 import { CareType } from '../../context/GoodsContextProvider';
 import data from '../../data/data.json';
+import useMediaQuery from '../../hooks/useMediaQuery';
 import CatalogueGrid from './grid/CatalogueGrid';
 import CatalogueHeader from './header/CatalogueHeader';
+
+import MobileParameters from './mobileParameters/MobileParameters';
 import CatalogueParameters from './parameters/CatalogueParameters';
 
 export type Selectors = 'nameDown' | 'nameUp' | 'priceDown' | 'priceUp';
@@ -41,14 +45,7 @@ function Catalogue() {
   const [careType, setCareType] = useState<CareType | ''>('');
   const [selectedSort, setSelectedSort] = useState<Selectors>('priceDown');
 
-  console.log(
-    min,
-    max,
-    manufacturer,
-    checkedManufacturers,
-    careType,
-    selectedSort
-  );
+  const mobileMedia = useMediaQuery('(max-width: 1200px)');
 
   const childProps = {
     min,
@@ -65,7 +62,12 @@ function Catalogue() {
     setSelectedSort,
   };
 
-  return (
+  return mobileMedia ? (
+    <MobileContainer>
+      <MobileParameters {...childProps} />
+      <CatalogueGrid {...childProps} />
+    </MobileContainer>
+  ) : (
     <Container>
       <CatalogueHeader {...childProps} />
       <Wrapper>

@@ -8,8 +8,10 @@ import {
 } from '../../components/QuantityButtonsGroup';
 import YellowButton from '../../components/YellowButton';
 import { useShoppingCartContext } from '../../context/ShoppingCartProvider';
+import useMediaQuery from '../../hooks/useMediaQuery';
 import getCartQuantity from '../../utils/getCartQuantity';
 import getCartSum from '../../utils/getCartSum';
+import MobileShoppingCart from '../mobileShoppingCart/MobileShoppingCart';
 import {
   Breadcrumbs,
   BreadcrumbsCart,
@@ -62,7 +64,11 @@ function ShoppingCart() {
     removeAllItems();
   };
 
-  return (
+  const mobileMedia = useMediaQuery('(max-width: 1200px)');
+
+  return mobileMedia ? (
+    <MobileShoppingCart />
+  ) : (
     <Container>
       <Wrapper>
         <Breadcrumbs>

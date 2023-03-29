@@ -40,7 +40,7 @@ const BreadcrumbsCurrent = styled(Light)`
   opacity: 0.5;
 `;
 
-const SortingGroup = styled.div`
+export const SortingGroup = styled.div`
   display: flex;
   gap: 7px;
   margin-right: 98px;
@@ -54,7 +54,7 @@ const SortingGroup = styled.div`
   }
 `;
 
-const Select = styled.select`
+export const Select = styled.select`
   appearance: none;
   background-color: transparent;
   border: none;

@@ -17,6 +17,7 @@ const Input = styled.input`
 
   &::placeholder {
     opacity: 0.6;
+    font-family: 'Inter';
   }
 `;
 
