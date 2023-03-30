@@ -29,10 +29,9 @@ const Wrapper = styled.div`
 function App() {
   const { openMenu, setOpenMenu } = useBurgerMenuContext();
   useEffect(() => {
-    console.log('mount');
     function closeModal(event: any) {
       let target = event.target as HTMLElement;
-      console.log(target.dataset.type);
+
       if (target.dataset.type) {
         setOpenMenu(false);
       }

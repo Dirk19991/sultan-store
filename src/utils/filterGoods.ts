@@ -13,6 +13,7 @@ export default function filterGoods(
 ) {
   let filterPrice = goods.filter((item) => {
     const price = parseFloat(item.price.replace(',', '.'));
+
     return price >= min && price <= max;
   });
 
@@ -24,7 +25,6 @@ export default function filterGoods(
     if (checkedManufacturers.length === 0) {
       return item;
     } else {
-      console.log(checkedManufacturers.includes(item.manufacturer));
       return checkedManufacturers.includes(item.manufacturer);
     }
   });

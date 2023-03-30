@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import { NumericFormat } from 'react-number-format';
 import Input from '../../../components/Input';
@@ -12,6 +12,7 @@ import Checkbox from '@mui/material/Checkbox';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { ICatalogueParameters } from '../Catalogue';
+import filterGoods from '../../../utils/filterGoods';
 
 const Wrapper = styled.div`
   display: flex;

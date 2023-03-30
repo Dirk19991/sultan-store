@@ -97,7 +97,7 @@ function CatalogueGrid(props: ICatalogueParameters) {
 
   useEffect(() => {
     document.documentElement.scrollTo({
-      top: 200,
+      top: 0,
       left: 0,
       behavior: 'auto',
     });

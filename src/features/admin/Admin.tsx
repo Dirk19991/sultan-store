@@ -41,13 +41,37 @@ const Select = styled.select`
   cursor: pointer;
 `;
 
+const Add = styled.option`
+  color: green;
+`;
+
 function Admin() {
   const { goods, addItem, removeItem } = useGoodsContext();
   const [selectedItem, setSelectedItem] = useState<Item | null>(null);
+  const [option, setOption] = useState<string>('choose');
 
   const selectedItemHandler = (value: string) => {
-    const item = goods.find((item) => item.id === +value) || goods[0];
-    setSelectedItem(item);
+    if (value === 'add') {
+      const lastId = goods.sort((a, b) => b.id - a.id)[0].id;
+      const newItem: Item = {
+        id: lastId + 1,
+        title: '',
+        sizeType: 'volume',
+        size: '',
+        barcode: 0,
+        brand: '',
+        manufacturer: '',
+        price: '',
+        description: '',
+        careType: [],
+        imageSmall: '',
+        imageBig: '',
+      };
+      setSelectedItem(newItem);
+    } else {
+      const item = goods.find((item) => item.id === +value) || null;
+      setSelectedItem(item);
+    }
   };
 
   return (
@@ -58,8 +82,11 @@ function Admin() {
 
         <GoodsWrapper>
           <Select
-            onChange={(e) => selectedItemHandler(e.target.value)}
-            defaultValue='choose'
+            onChange={(e) => {
+              selectedItemHandler(e.target.value);
+              setOption(e.target.value);
+            }}
+            value={option}
             name='select'
             id=''
           >
@@ -71,8 +98,13 @@ function Admin() {
                 {elem.title}
               </option>
             ))}
+            <Add value='add'>Добавить новый товар</Add>
           </Select>
-          <AdminItem item={selectedItem} />
+          <AdminItem
+            setOption={setOption}
+            setSelectedItem={setSelectedItem}
+            item={selectedItem}
+          />
         </GoodsWrapper>
       </Wrapper>
     </Container>

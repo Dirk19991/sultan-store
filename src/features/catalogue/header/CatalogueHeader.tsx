@@ -72,7 +72,7 @@ export const Select = styled.select`
   }
 `;
 
-const Filter = styled.div<{ wrap: boolean }>`
+const Filter = styled.div<{ wrap: number }>`
   display: flex;
   flex-wrap: ${(props) => (props.wrap ? 'wrap' : 'nowrap')};
   gap: 11px;
@@ -141,7 +141,7 @@ function CatalogueHeader(props: ICatalogueParameters) {
           </Select>
         </SortingGroup>
       </Flex>
-      <Filter wrap={tabletMedia}>
+      <Filter wrap={tabletMedia ? 1 : 0}>
         {filterOptions.map((option) => (
           <FilterElement
             name={option.name}

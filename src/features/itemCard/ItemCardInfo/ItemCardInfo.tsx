@@ -19,7 +19,7 @@ const Wrapper = styled.div`
   margin-top: 50px;
 `;
 
-const InStock = styled.div`
+export const InStock = styled.div`
   color: var(--green);
   font-weight: 500;
   line-height: 130%;
@@ -64,11 +64,11 @@ const Price = styled.div`
   margin-right: 40px;
 `;
 
-const ItemButtons = styled(ButtonsWrapper)`
+export const ItemButtons = styled(ButtonsWrapper)`
   margin-right: 38px;
 `;
 
-const CartButton = styled(YellowButton)`
+export const CartButton = styled(YellowButton)`
   display: flex;
   align-items: center;
   font-weight: 600;
@@ -92,16 +92,16 @@ const CartButton = styled(YellowButton)`
   }
 `;
 
-const CartText = styled.div`
+export const CartText = styled.div`
   margin-right: -3px;
   margin-top: 2px;
 `;
 
-const ShoppingCart = styled.div`
+export const ShoppingCart = styled.div`
   margin-top: 6px;
 `;
 
-const ShareButton = styled.div`
+export const ShareButton = styled.div`
   width: 77px;
   height: 77px;
   display: flex;
@@ -112,7 +112,7 @@ const ShareButton = styled.div`
   margin-right: 10px;
 `;
 
-const FreeShipping = styled.div`
+export const FreeShipping = styled.div`
   width: 316px;
   height: 77px;
   display: flex;
@@ -127,7 +127,7 @@ const FreeShipping = styled.div`
   margin-right: 10px;
 `;
 
-const PriceList = styled.div`
+export const PriceList = styled.div`
   width: 186px;
   height: 77px;
   display: flex;
@@ -142,11 +142,11 @@ const PriceList = styled.div`
   gap: 10px;
 `;
 
-const DownloadIcon = styled.div`
+export const DownloadIcon = styled.div`
   margin-top: 3px;
 `;
 
-const Manufacturer = styled.div`
+export const Manufacturer = styled.div`
   font-weight: 300;
   font-size: 14px;
   line-height: 150%;
@@ -159,20 +159,20 @@ const Manufacturer = styled.div`
   }
 `;
 
-const Brand = styled(Manufacturer)`
+export const Brand = styled(Manufacturer)`
   margin-top: 0;
 `;
 
-const Article = styled(Manufacturer)`
+export const Article = styled(Manufacturer)`
   margin-top: 0;
 `;
 
-const Barcode = styled(Manufacturer)`
+export const Barcode = styled(Manufacturer)`
   margin-top: 0;
   margin-bottom: 28px;
 `;
 
-const DescriptionButton = styled.div`
+export const DescriptionButton = styled.div`
   font-weight: 500;
   font-size: 16px;
   line-height: 150%;
@@ -189,61 +189,61 @@ const DescriptionButton = styled.div`
   }
 `;
 
-const Description = styled.div`
+export const Description = styled.div`
   font-weight: 300;
   font-size: 12px;
   line-height: 150%;
   margin-bottom: 20px;
 `;
 
-const DashedLine = styled.div`
+export const DashedLine = styled.div`
   width: 269.5px;
   height: 0px;
   border: 1px dashed rgba(63, 78, 101, 0.1);
   margin-bottom: 20px;
 `;
 
-const CharacteristicsButton = styled(DescriptionButton)<{ margin: boolean }>`
+export const CharacteristicsButton = styled(DescriptionButton)<{
+  margin: boolean;
+}>`
   margin-bottom: ${(props) => (props.margin ? '100px' : '5px')};}
 `;
 
-const Characteristics = styled.div`
+export const Characteristics = styled.div`
   font-weight: 300;
   font-size: 12px;
   line-height: 150%;
   margin-bottom: 20px;
 `;
 
-const Purpose = styled(Manufacturer)`
+export const Purpose = styled(Manufacturer)`
   margin-top: 0;
 `;
 
-const Type = styled(Manufacturer)`
+export const Type = styled(Manufacturer)`
   margin-top: 0;
   margin-bottom: -10px;
 `;
 
-const BarcodeChar = styled(Manufacturer)`
+export const BarcodeChar = styled(Manufacturer)`
   margin-top: 0;
 `;
 
-const WeightChar = styled(Manufacturer)`
+export const WeightChar = styled(Manufacturer)`
   margin-top: 0;
 `;
 
-const Volume = styled(Manufacturer)`
+export const Volume = styled(Manufacturer)`
   margin-top: 0;
 `;
 
-const BoxQuantity = styled(Manufacturer)`
+export const BoxQuantity = styled(Manufacturer)`
   margin-top: 0;
 `;
 
 function ItemCardInfo(props: IItemCardInfo) {
   const currentItem = props.currentItem as Item;
   const { addCartItem, items } = useShoppingCartContext();
-
-  console.log(items);
 
   const [itemsNumber, setItemsNumber] = useState<number>(1);
   const [openDescription, setOpenDescription] = useState<boolean>(false);

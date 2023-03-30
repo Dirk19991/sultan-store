@@ -17,7 +17,7 @@ const Wrapper = styled.div`
   padding-left: 13px;
   padding-top: 20px;
   gap: 10px;
-  height: 694px;
+  height 580px;
   background-color: var(--white);
   z-index: 10;
 `;

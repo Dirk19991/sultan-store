@@ -155,7 +155,7 @@ function MobileParameters(props: ICatalogueParameters) {
       { name: 'feet', text: 'Уход за ногами', width: '100px' },
       { name: 'face', text: 'Уход  за лицом', width: '100px' },
       { name: 'hair', text: 'Уход за волосами', width: '120px' },
-      { name: 'tan', text: 'Средства  для загара', width: '120px' },
+      { name: 'tan', text: 'Средства для загара', width: '120px' },
       { name: 'shaving', text: 'Средства для бритья', width: '120px' },
       { name: 'hygiene', text: 'Гигиеническая продукция', width: '120px' },
       { name: 'mouth', text: 'Гигиена полости рта', width: '140px' },

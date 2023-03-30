@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import Container from '../../components/Container';
 import Light from '../../components/Light';
 import { useGoodsContext } from '../../context/GoodsContextProvider';
+import useMediaQuery from '../../hooks/useMediaQuery';
+import MobileItemCard from '../mobileItemCard/MobileItemCard';
 import {
   Breadcrumbs,
   BreadcrumbsCurrent,
@@ -15,6 +17,8 @@ import ItemCardImage from './ItemCardImage/ItemCardImage';
 import ItemCardInfo from './ItemCardInfo/ItemCardInfo';
 
 function ItemCard() {
+  const mobileMedia = useMediaQuery('(max-width: 1200px)');
+
   const location = useLocation();
   const barcode = location.pathname.split('/').at(-1);
   const { goods } = useGoodsContext();
@@ -22,7 +26,9 @@ function ItemCard() {
     ? goods.find((item) => +item.barcode === +barcode)
     : goods[0];
 
-  return (
+  return mobileMedia ? (
+    <MobileItemCard />
+  ) : (
     <Container>
       <Wrapper>
         <Breadcrumbs>

@@ -9,6 +9,8 @@ import Select, { MultiValue } from 'react-select';
 
 interface IAdminItem {
   item: Item | null;
+  setSelectedItem: React.Dispatch<React.SetStateAction<Item | null>>;
+  setOption: React.Dispatch<React.SetStateAction<string>>;
 }
 
 interface Option {
@@ -16,43 +18,73 @@ interface Option {
   label: string;
 }
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   width: 500px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
 `;
 
-const Form = styled.form`
+export const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: 5px;
 `;
 
-const Bold = styled.span`
+export const Bold = styled.span`
   font-size: 16px;
   font-weight: 600;
 `;
 
-const SaveButton = styled.button`
+export const SaveButton = styled.button`
   width: 180px;
-  height: 20px;
+  height: 30px;
+  margin-bottom: 10px;
 `;
 
-const FormError = styled.div`
+export const DeleteButton = styled.button`
+  width: 180px;
+  height: 30px;
+  margin-bottom: 10px;
+`;
+
+export const AddButton = styled.button`
+  width: 180px;
+  height: 30px;
+`;
+
+export const FormError = styled.div`
   color: red;
 `;
 
-function AdminItem(props: IAdminItem) {
-  const { item } = props;
-  const { goods, updateItem } = useGoodsContext();
+export const Input = styled.input`
+  width: 400px;
+  padding: 5px;
+`;
 
-  const [editableCareType, setEditableCareType] = useState(
+export const StyledSelect = styled.select`
+  width: 400px;
+  padding: 5px;
+`;
+
+export const Label = styled.label`
+  display: flex;
+  width: 700px;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+function AdminItem(props: IAdminItem) {
+  const { item, setSelectedItem, setOption } = props;
+  const { goods, addItem, updateItem, removeItem } = useGoodsContext();
+
+  const [editableCareType, setEditableCareType] = useState<CareType[] | null>(
     item?.careType || null
   );
-  const [error, setError] = useState(false);
+  const [error, setError] = useState<boolean>(false);
 
   useEffect(() => {
-    console.log('here');
     if (item) {
-      console.log('there');
       setEditableCareType(item.careType);
       setError(false);
     }
@@ -132,9 +164,24 @@ function AdminItem(props: IAdminItem) {
       imageSmall: imageSmall,
       imageBig: imageBig,
     };
+    console.log(updatedItem);
 
-    updateItem(item.id, updatedItem);
+    const lastId = goods.sort((a, b) => b.id - a.id)[0].id;
+    if (item.id === lastId + 1) {
+      addItem(updatedItem);
+      localStorage.setItem('goods', JSON.stringify([...goods, updatedItem]));
+    } else {
+      updateItem(item.id, updatedItem);
+      localStorage.setItem('goods', JSON.stringify(goods));
+    }
+  };
+
+  const deleteItemHandler = () => {
+    if (!item) return;
+    removeItem(item.id);
     localStorage.setItem('goods', JSON.stringify(goods));
+    setSelectedItem(null);
+    setOption('choose');
   };
 
   const setCareTypesHandler = (
@@ -151,18 +198,18 @@ function AdminItem(props: IAdminItem) {
           <div>
             <Bold>ID:</Bold> {item.id}
           </div>
-          <label>
+          <Label>
             <Bold>Название:</Bold>{' '}
-            <input
+            <Input
               name='title'
               key={item.title}
               defaultValue={item.title}
               type='text'
             />
-          </label>
-          <label>
+          </Label>
+          <Label>
             <Bold>Тип размера:</Bold>{' '}
-            <select
+            <StyledSelect
               defaultValue={item.sizeType === 'weight' ? 'weight' : 'volume'}
               key={item.sizeType === 'weight' ? 'weight' : 'volume'}
               name='sizeType'
@@ -170,54 +217,54 @@ function AdminItem(props: IAdminItem) {
             >
               <option value='weight'>Вес</option>
               <option value='volume'>Объем</option>
-            </select>
-          </label>
-          <label>
+            </StyledSelect>
+          </Label>
+          <Label>
             <Bold>Размер:</Bold>{' '}
-            <input
+            <Input
               name='size'
               key={item.size}
               defaultValue={item.size}
               type='text'
             />
-          </label>
-          <label>
+          </Label>
+          <Label>
             <Bold>Бренд:</Bold>{' '}
-            <input
+            <Input
               name='brand'
               key={item.brand}
               defaultValue={item.brand}
               type='text'
             />
-          </label>
-          <label>
+          </Label>
+          <Label>
             <Bold>Производитель:</Bold>{' '}
-            <input
+            <Input
               name='manufacturer'
               key={item.manufacturer}
               defaultValue={item.manufacturer}
               type='text'
             />
-          </label>
-          <label>
+          </Label>
+          <Label>
             <Bold>Цена:</Bold>{' '}
-            <input
+            <Input
               name='price'
               key={item.price}
               defaultValue={item.price}
               type='text'
             />
-          </label>
-          <label>
+          </Label>
+          <Label>
             <Bold>Описание:</Bold>{' '}
-            <input
+            <Input
               name='description'
               key={item.description}
               defaultValue={item.description}
               type='text'
             />
-          </label>
-          <div>
+          </Label>
+          <Label>
             <Bold>Тип ухода:</Bold>{' '}
             <Select
               defaultValue={options.filter((option) =>
@@ -230,39 +277,52 @@ function AdminItem(props: IAdminItem) {
               onChange={(
                 choice: MultiValue<{ value: CareType; label: string }>
               ) => setCareTypesHandler(choice)}
+              styles={{
+                control: (baseStyles, state) => ({
+                  ...baseStyles,
+                  width: '400px',
+                  borderColor: 'black',
+                }),
+              }}
             />
-          </div>
-          <div>
+          </Label>
+          <Label>
             <Bold>Ссылка на маленькую картинку:</Bold>
-            <input
+            <Input
               name='imageSmall'
               key={item.price}
               defaultValue={item.imageSmall}
               type='text'
             />
-          </div>
-          <div>
+          </Label>
+          <Label>
             <Bold>Ссылка на большую картинку:</Bold>
-            <input
+            <Input
               name='imageBig'
               key={item.imageBig}
               defaultValue={item.imageBig}
               type='text'
             />
-          </div>
+          </Label>
 
-          <div>
+          <Label>
             <Bold>Штрих-код:</Bold>
-            <input
+            <Input
               name='barcode'
               key={item.barcode}
               defaultValue={item.barcode}
               type='text'
             />
-          </div>
+          </Label>
           <SaveButton type='submit'>Сохранить изменения</SaveButton>
         </Form>
       )}
+      {item && (
+        <DeleteButton onClick={deleteItemHandler} type='submit'>
+          Удалить товар
+        </DeleteButton>
+      )}
+
       {error && (
         <FormError>
           Ошибка! Проверьте типы данных и попробуйте еще раз.
