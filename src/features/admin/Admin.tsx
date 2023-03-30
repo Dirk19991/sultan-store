@@ -65,11 +65,13 @@ function Admin() {
             <option disabled value='choose'>
               Выберите товар
             </option>
-            {goods.map((elem) => (
-              <option key={elem.id} value={elem.id}>
-                {elem.title}
-              </option>
-            ))}
+            {goods
+              .sort((a, b) => (a.title > b.title ? 1 : -1))
+              .map((elem) => (
+                <option key={elem.id} value={elem.id}>
+                  {elem.title}
+                </option>
+              ))}
             <Add value='add'>Добавить новый товар</Add>
           </Select>
           <AdminItem
