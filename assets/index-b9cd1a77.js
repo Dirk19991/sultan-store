@@ -404,6 +404,7 @@ Error generating stack: `+o.message+`
 `;function mC(){const e=Bn("(min-width: 1377px)"),t=Bn("(min-width: 1177px)"),{items:n}=zi(),r=n.length===0?0:Fv(n),i=pf(n);return E(tC,{children:[h(Ho,{to:"/",children:h(nC,{children:h("img",{src:"./icons/sultanLogo.svg",alt:"sultanLogo"})})}),E(rC,{children:[h("span",{children:"Каталог"}),h("div",{children:h("img",{src:"./icons/catalogue.svg",alt:"catalogue"})})]}),E(iC,{children:[h(df,{placeholder:"Поиск..."}),h(ff,{children:h("img",{src:"./icons/lookingGlass.svg",alt:"lookingGlass"})})]}),t&&E(oC,{children:[E(aC,{children:[h(An,{children:"+7 (777) 490-00-91"}),h(dt,{children:"время работы: 9:00-20:00"}),h(cf,{children:"Заказать звонок"})]}),h(lC,{children:h("img",{src:"./icons/call.png",alt:"call"})}),h(sC,{})]}),e&&E(uC,{children:[h("span",{children:"Прайс-лист"}),h("div",{children:h("img",{src:"./icons/download.svg",alt:"download"})})]}),h(dC,{}),h(Ho,{to:"./cart",children:E(fC,{children:[E(cC,{children:[h("img",{src:"./icons/shoppingCart.svg",alt:"shoppingCart"}),h(Av,{children:i})]}),E(pC,{children:[h(dt,{children:"Корзина"}),E(hC,{children:[r," ₸"]})]})]})})]})}const Iv=S.createContext({openMenu:!1,setOpenMenu:()=>{}}),As=()=>S.useContext(Iv);function gC({children:e}){const[t,n]=S.useState(!1),r={openMenu:t,setOpenMenu:n};return h(Iv.Provider,{value:r,children:e})}const vC=C.div`
   height: 93px;
   padding: 10px 15px;
+  box-shadow: none;
 `,yC=C.div`
   display: flex;
   justify-content: space-between;
