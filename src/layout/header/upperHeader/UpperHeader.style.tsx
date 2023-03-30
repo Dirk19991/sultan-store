@@ -39,4 +39,8 @@ export const Links = styled.ul<{ tablet: boolean }>`
   flex-wrap: wrap;
   column-gap: ${(props) => (props.tablet ? '20px' : '60px')};
   row-gap: 10px;
+
+  > li {
+    cursor: pointer;
+  }
 `;

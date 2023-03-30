@@ -22,12 +22,14 @@ export const SaveButton = styled.button`
   width: 180px;
   height: 30px;
   margin-bottom: 10px;
+  cursor: pointer;
 `;
 
 export const DeleteButton = styled.button`
   width: 180px;
   height: 30px;
   margin-bottom: 10px;
+  cursor: pointer;
 `;
 
 export const FormError = styled.div`

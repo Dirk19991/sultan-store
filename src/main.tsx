@@ -2,12 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './app/App';
 import './index.css';
-import {
-  createBrowserRouter,
-  createHashRouter,
-  Navigate,
-  RouterProvider,
-} from 'react-router-dom';
+import { createHashRouter, Navigate, RouterProvider } from 'react-router-dom';
 import Catalogue from './features/catalogue/Catalogue';
 import GoodsContextProvider from './context/GoodsContextProvider';
 import Admin from './features/admin/Admin';
@@ -38,6 +33,10 @@ const router = createHashRouter([
       {
         path: '/cart',
         element: <ShoppingCart />,
+      },
+      {
+        path: '/admin',
+        element: <Admin />,
       },
       {
         path: '/',

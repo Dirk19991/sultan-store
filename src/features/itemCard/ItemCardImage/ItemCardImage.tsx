@@ -1,4 +1,3 @@
-import styled from 'styled-components';
 import { Image } from './ItemCardImage.style';
 
 interface IItemCardImage {

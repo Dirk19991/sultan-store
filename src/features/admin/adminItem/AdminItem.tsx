@@ -133,6 +133,7 @@ function AdminItem(props: IAdminItem) {
     localStorage.setItem('goods', JSON.stringify(goods));
     setSelectedItem(null);
     setOption('choose');
+    setSuccess(true);
   };
 
   const setCareTypesHandler = (

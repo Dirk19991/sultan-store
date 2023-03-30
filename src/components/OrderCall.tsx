@@ -5,6 +5,7 @@ const OrderCall = styled.div`
   line-height: 150%;
   text-decoration-line: underline;
   text-underline-offset: 2px;
+  cursor: pointer;
 `;
 
 export default OrderCall;

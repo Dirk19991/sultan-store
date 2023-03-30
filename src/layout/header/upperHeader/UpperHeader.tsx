@@ -39,10 +39,18 @@ function UpperHeader() {
         </Mail>
       </Contacts>
       <Links tablet={tabletMedia}>
-        <li>О компании</li>
-        <li>Доставка и оплата</li>
-        <li>Возврат</li>
-        <li>Контакты</li>
+        <li>
+          <a href='#'>О компании</a>
+        </li>
+        <li>
+          <a href='#'>Доставка и оплата</a>
+        </li>
+        <li>
+          <a href='#'>Возврат</a>
+        </li>
+        <li>
+          <a href='#'>Контакты</a>
+        </li>
       </Links>
     </Wrapper>
   );

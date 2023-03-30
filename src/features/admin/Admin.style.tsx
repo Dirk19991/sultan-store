@@ -12,7 +12,7 @@ export const AdminHeader = styled.h1`
   line-height: 120%;
   color: var(--black);
   text-transform: uppercase;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 `;
 
 export const AdminSubheader = styled.h2`
@@ -21,7 +21,7 @@ export const AdminSubheader = styled.h2`
   line-height: 120%;
   color: var(--black);
   text-transform: uppercase;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 `;
 
 export const GoodsWrapper = styled.div`

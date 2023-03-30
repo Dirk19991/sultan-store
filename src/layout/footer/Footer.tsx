@@ -9,6 +9,7 @@ import YellowButton from '../../components/YellowButton';
 import OrderCall from '../../components/OrderCall';
 import Light from '../../components/Light';
 import {
+  AdminPanel,
   Arrow,
   CategoriesColumn,
   ContactsColumn,
@@ -35,6 +36,7 @@ import {
 } from './Footer.style';
 import useMediaQuery from '../../hooks/useMediaQuery';
 import MobileFooter from './mobileFooter/MobileFooter';
+import { Link } from 'react-router-dom';
 
 function Footer() {
   const tabletMedia = useMediaQuery('(max-width: 1350px)');
@@ -67,16 +69,16 @@ function Footer() {
           <FooterHeader>Меню сайта:</FooterHeader>
           <Links>
             <li>
-              <a href='#'></a>О компании
+              <a href='#'>О компании</a>
             </li>
             <li>
-              <a href='#'></a>Доставка и оплата
+              <a href='#'>Доставка и оплата</a>
             </li>
             <li>
-              <a href='#'></a>Возврат
+              <a href='#'>Возврат</a>
             </li>
             <li>
-              <a href='#'></a>Контакты
+              <a href='#'>Контакты</a>
             </li>
           </Links>
         </MenuColumn>
@@ -84,19 +86,19 @@ function Footer() {
           <FooterHeader>Категории:</FooterHeader>
           <Links>
             <li>
-              <a href='#'></a>Бытовая химия
+              <a href='#'>Бытовая химия</a>
             </li>
             <li>
-              <a href='#'></a>Косметика и гигиена
+              <a href='#'>Косметика и гигиена</a>
             </li>
             <li>
-              <a href='#'></a>Товары для дома
+              <a href='#'>Товары для дома</a>
             </li>
             <li>
-              <a href='#'></a>Товары для детей и мам
+              <a href='#'>Товары для детей и мам</a>
             </li>
             <li>
-              <a href='#'></a>Посуда
+              <a href='#'>Посуда</a>
             </li>
           </Links>
         </CategoriesColumn>
@@ -111,12 +113,16 @@ function Footer() {
           <Messengers>
             <div>Связь в мессенджерах:</div>
             <MessengerLinks>
-              <div>
-                <img src='./icons/whatsapp.svg' alt='whatsapp' />
-              </div>
-              <div>
-                <img src='./icons/telegram.svg' alt='telegram' />
-              </div>
+              <a href='#'>
+                <div>
+                  <img src='./icons/whatsapp.svg' alt='whatsapp' />
+                </div>
+              </a>
+              <a href='#'>
+                <div>
+                  <img src='./icons/telegram.svg' alt='telegram' />
+                </div>
+              </a>
             </MessengerLinks>
           </Messengers>
         </PriceColumn>
@@ -140,6 +146,9 @@ function Footer() {
               <img src='./icons/mastercard.png' alt='mastercard' />
             </div>
           </Payment>
+          <AdminPanel>
+            <Link to='/admin'>Админка</Link>
+          </AdminPanel>
         </ContactsColumn>
       </FooterContainer>
     </Wrapper>

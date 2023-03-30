@@ -59,6 +59,7 @@ export const LogoInput = styled(Input)`
 export const Arrow = styled(LookingGlass)`
   top: 10px;
   right: 48px;
+  cursor: pointer;
 `;
 
 export const MenuColumn = styled(Column)`
@@ -69,6 +70,9 @@ export const Links = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 27px;
+  > li {
+    cursor: pointer;
+  }
 `;
 
 export const CategoriesColumn = styled(Column)`
@@ -100,6 +104,10 @@ export const MessengerLinks = styled.div`
   display: flex;
   gap: 10px;
   margin-left: -2px;
+
+  > a {
+    cursor: pointer;
+  }
 `;
 
 export const ContactsColumn = styled(Column)`
@@ -131,4 +139,10 @@ export const MailAddress = styled(SemiBold)`
 export const Payment = styled.div`
   display: flex;
   gap: 5px;
+`;
+
+export const AdminPanel = styled.div`
+  margin-top: 10px;
+  cursor: pointer;
+  font-weight: 800;
 `;

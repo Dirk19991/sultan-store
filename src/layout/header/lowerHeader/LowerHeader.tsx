@@ -1,12 +1,10 @@
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
 import Input from '../../../components/Input';
 import Light from '../../../components/Light';
 import LookingGlass from '../../../components/LookingGlass';
 import OrderCall from '../../../components/OrderCall';
 import SemiBold from '../../../components/SemiBold';
 import { useShoppingCartContext } from '../../../context/ShoppingCartProvider';
-
 import useMediaQuery from '../../../hooks/useMediaQuery';
 import getCartQuantity from '../../../utils/getCartQuantity';
 import getCartSum from '../../../utils/getCartSum';
