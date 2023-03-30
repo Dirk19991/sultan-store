@@ -10,14 +10,12 @@ import {
 } from '../../layout/header/upperHeader/UpperHeader.style';
 
 const Wrapper = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
   display: flex;
   width: 320px;
+  margin: 0 auto;
   flex-direction: column;
   padding-left: 13px;
-  margin-top: 30px;
+  padding-top: 20px;
   gap: 10px;
   height: 694px;
   background-color: var(--white);

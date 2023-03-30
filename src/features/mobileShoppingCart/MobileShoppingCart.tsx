@@ -20,23 +20,12 @@ import {
   Weight,
 } from '../shoppingCart/ShoppingCart.style';
 
-const Wrapper = styled.div<{ opened: boolean }>`
+const Wrapper = styled.div<{ opened?: boolean }>`
   position: relative;
   padding: 0 15px;
 
   display: flex;
   flex-direction: column;
-
-  &::after {
-    box-shadow: ${(props) =>
-      props.opened ? 'inset 0 0 500px 100px rgba(17, 17, 17, 0.5)' : ''};
-    content: '';
-    display: ${(props) => (props.opened ? 'block' : 'none')};
-    height: 100%;
-    position: absolute;
-    top: 0;
-    width: 100%;
-  }
 `;
 
 const Header = styled(PageHeader)`
@@ -175,12 +164,6 @@ function MobileShoppingCart() {
             </MobileCartItem>
           );
         })}
-
-        {openMenu && (
-          <Wrap>
-            <BurgerMenu />
-          </Wrap>
-        )}
       </Wrapper>
     </MobileContainer>
   );

@@ -324,7 +324,6 @@ function MobileParameters(props: ICatalogueParameters) {
         <ShowAll onClick={() => setShowAll((prev) => !prev)}>
           Показать все <span>{showAll ? '▲' : '▼'}</span>
         </ShowAll>
-        {openMenu && <BurgerMenu />}
       </Wrapper>
     </>
   );

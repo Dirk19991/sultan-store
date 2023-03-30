@@ -12,8 +12,11 @@ import { YellowCircle } from '../lowerHeader/LowerHeader.style';
 import { Address, Column } from '../upperHeader/UpperHeader.style';
 
 const Wrapper = styled.div`
+  position: relative;
   height: 93px;
   padding: 10px 15px;
+  box-shadow: none;
+  background-color: white;
 `;
 
 const UpperHeader = styled.div`
@@ -99,6 +102,7 @@ const Search = styled.input`
   height: 20px;
   border: none;
   color: rgba(92, 99, 112, 1);
+  margin-right: 7px;
 
   &:focus {
     outline: none;
