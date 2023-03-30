@@ -2,126 +2,38 @@ import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { useState } from 'react';
 import styled from 'styled-components';
-import Light from '../../../components/Light';
 import PageHeader from '../../../components/PageHeader';
-import SemiBold from '../../../components/SemiBold';
 import { useBurgerMenuContext } from '../../../context/BurgerMenuProvider';
 import {
   CareType,
   useGoodsContext,
 } from '../../../context/GoodsContextProvider';
-
 import checkboxSorter from '../../../utils/checkboxSorter';
-import BurgerMenu from '../../burgerMenu/BurgerMenu';
 import { ICatalogueParameters, Selectors } from '../Catalogue';
-import { Select, SortingGroup } from '../header/CatalogueHeader';
+import { Select, SortingGroup } from '../header/CatalogueHeader.style';
 import {
   CheckboxWrapper,
-  Filter,
-  FilterOption,
   InputWrapper,
-  ManufacturerGlass,
   ManufacturerHeader,
-  ManufacturerSearch,
-  NumberInput,
-  Price,
   SearchWrapper,
   ShowAll,
-} from '../parameters/CatalogueParameters';
-
-const Wrapper = styled.div<{ visibility?: boolean }>`
-  position: relative;
-  padding: 0 15px;
-  display: flex;
-  flex-direction: column;
-  display: ${(props) => (props.visibility ? 'none' : '')};
-`;
-
-export const BackButtonWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-weight: 600;
-  font-size: 10px;
-  line-height: 120%;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  margin-top: 30px;
-  margin-bottom: 25px;
-  cursor: pointer;
-`;
-
-export const BackButton = styled.button`
-  width: 32px;
-  height: 32px;
-  background-color: rgba(255, 202, 101, 0.3);
-  border-radius: 100px;
-  border: none;
-  cursor: pointer;
-`;
-
-const Header = styled(PageHeader)`
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 120%;
-  margin-bottom: 19px;
-`;
-
-const SubHeader = styled(PageHeader)`
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 150%;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 11px;
-`;
-
-const UpButton = styled(BackButton)`
-  background-color: rgba(255, 202, 101, 0.5);
-  margin-top: -5px;
-  cursor: pointer;
-
-  > div {
-    margin-top: -4px;
-  }
-`;
-
-const MobilePrice = styled(Price)`
-  > span {
-    margin-left: 2px;
-  }
-`;
-
-const MobileNumberInput = styled(NumberInput)<{ width?: string }>`
-  background: linear-gradient(
-    90deg,
-    rgba(255, 198, 80, 0.3) 0%,
-    rgba(254, 202, 110, 0.3) 97.25%
-  );
-  width: ${(props) => props.width || '100px'};
-`;
-
-const MobileManufacturerSearch = styled(ManufacturerSearch)`
-  width: 290px;
-`;
-
-const MobileManufacturerGlass = styled(ManufacturerGlass)`
-  margin-right: 0px;
-`;
-
-const MobileFilter = styled(Filter)`
-  margin-bottom: 10px;
-`;
-
-const MobileFilterOption = styled(FilterOption)<{
-  name: CareType | '';
-  careType: CareType | '';
-}>`
-  font-weight: ${(props) => (props.name === props.careType ? '700' : '400')};
-  font-size: 14px;
-  line-height: 17px;
-  text-transform: none;
-`;
+} from '../parameters/CatalogueParameters.style';
+import { Link } from 'react-router-dom';
+import {
+  Wrapper,
+  BackButtonWrapper,
+  BackButton,
+  Header,
+  SubHeader,
+  UpButton,
+  MobileFilter,
+  MobileFilterOption,
+  MobilePrice,
+  MobileNumberInput,
+  MobileManufacturerSearch,
+  MobileManufacturerGlass,
+  MobileSortingGroup,
+} from './MobileParameters.style';
 
 function MobileParameters(props: ICatalogueParameters) {
   const {
@@ -135,11 +47,8 @@ function MobileParameters(props: ICatalogueParameters) {
     setCheckedManufacturers,
     careType,
     setCareType,
-    selectedSort,
     setSelectedSort,
   } = props;
-
-  const { openMenu, setOpenMenu } = useBurgerMenuContext();
 
   const [showAll, setShowAll] = useState<boolean>(false);
   const [showFilter, setShowFilter] = useState<boolean>(false);
@@ -204,12 +113,14 @@ function MobileParameters(props: ICatalogueParameters) {
   return (
     <>
       <Wrapper>
-        <BackButtonWrapper>
-          <BackButton>
-            <img src='./icons/arrowLeftBlack.svg' alt='arrowLeft' />
-          </BackButton>
-          <div>Назад</div>
-        </BackButtonWrapper>
+        <Link to='/'>
+          <BackButtonWrapper>
+            <BackButton>
+              <img src='./icons/arrowLeftBlack.svg' alt='arrowLeft' />
+            </BackButton>
+            <div>Назад</div>
+          </BackButtonWrapper>
+        </Link>
         <Header>Косметика и гигиена</Header>
         <SubHeader>
           <div>Подбор по параметрам</div>
@@ -237,7 +148,7 @@ function MobileParameters(props: ICatalogueParameters) {
                 </MobileFilterOption>
               ))}
             </MobileFilter>
-            <SortingGroup>
+            <MobileSortingGroup>
               <span>Сортировка:</span>
               <Select
                 onChange={(e) => setSelectedSort(e.target.value as Selectors)}
@@ -247,7 +158,7 @@ function MobileParameters(props: ICatalogueParameters) {
                 <option value='nameUp'>Название &#9652;</option>
                 <option value='nameDown'>Название &#9662;</option>
               </Select>
-            </SortingGroup>
+            </MobileSortingGroup>
           </>
         )}
 

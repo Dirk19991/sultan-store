@@ -64,7 +64,7 @@ function ShoppingCart() {
     removeAllItems();
   };
 
-  const mobileMedia = useMediaQuery('(max-width: 1200px)');
+  const mobileMedia = useMediaQuery('(max-width: 900px)');
 
   return mobileMedia ? (
     <MobileShoppingCart />

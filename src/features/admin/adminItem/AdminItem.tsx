@@ -1,11 +1,21 @@
 import { useEffect, useState } from 'react';
-import styled from 'styled-components';
 import {
   CareType,
   Item,
   useGoodsContext,
-} from '../../context/GoodsContextProvider';
+} from '../../../context/GoodsContextProvider';
 import Select, { MultiValue } from 'react-select';
+import {
+  Wrapper,
+  Form,
+  Bold,
+  SaveButton,
+  DeleteButton,
+  FormError,
+  Input,
+  StyledSelect,
+  Label,
+} from './AdminItem.style';
 
 interface IAdminItem {
   item: Item | null;
@@ -20,71 +30,19 @@ interface Option {
   label: string;
 }
 
-export const Wrapper = styled.div`
-  width: 500px;
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-`;
-
-export const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-`;
-
-export const Bold = styled.span`
-  font-size: 16px;
-  font-weight: 600;
-`;
-
-export const SaveButton = styled.button`
-  width: 180px;
-  height: 30px;
-  margin-bottom: 10px;
-`;
-
-export const DeleteButton = styled.button`
-  width: 180px;
-  height: 30px;
-  margin-bottom: 10px;
-`;
-
-export const AddButton = styled.button`
-  width: 180px;
-  height: 30px;
-`;
-
-export const FormError = styled.div`
-  color: red;
-`;
-
-export const Input = styled.input`
-  width: 400px;
-  padding: 5px;
-`;
-
-export const StyledSelect = styled.select`
-  width: 400px;
-  padding: 5px;
-`;
-
-export const Label = styled.label`
-  display: flex;
-  width: 700px;
-  justify-content: space-between;
-  align-items: center;
-`;
-
 function AdminItem(props: IAdminItem) {
   const { item, setSelectedItem, setOption, success, setSuccess } = props;
   const { goods, addItem, updateItem, removeItem } = useGoodsContext();
 
+  // отдельное состояние для мультиселекта с выбором типа товара
   const [editableCareType, setEditableCareType] = useState<CareType[] | null>(
     item?.careType || null
   );
+
+  // ошибка если какое-то поле пустое
   const [error, setError] = useState<boolean>(false);
 
+  // обновляем типы товара при изменении товара и убираем ошибку
   useEffect(() => {
     if (item) {
       setEditableCareType(item.careType);
@@ -124,21 +82,6 @@ function AdminItem(props: IAdminItem) {
     const imageBig = formData.get('imageBig') as string;
     const barcode = Number(formData.get('barcode') as string);
 
-    interface Item {
-      id: number;
-      title: string;
-      sizeType: 'volume' | 'weight';
-      size: string;
-      barcode: number;
-      brand: string;
-      manufacturer: string;
-      price: string;
-      description: string;
-      careType: CareType[];
-      imageSmall: string;
-      imageBig: string;
-    }
-
     if (
       title === '' ||
       size === '' ||
@@ -166,8 +109,8 @@ function AdminItem(props: IAdminItem) {
       imageSmall: imageSmall,
       imageBig: imageBig,
     };
-    console.log(updatedItem);
 
+    // определяем, добавляем или обновляем товар по id товара - при добавлении это всегда самый большой id существующих товаров + 1
     const lastId = goods.sort((a, b) => b.id - a.id)[0].id;
     if (item.id === lastId + 1) {
       addItem(updatedItem);

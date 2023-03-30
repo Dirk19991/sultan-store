@@ -1,7 +1,5 @@
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
 import MobileContainer from '../../components/MobileContainer';
-import PageHeader from '../../components/PageHeader';
 import {
   ButtonsWrapper,
   ItemButton,
@@ -9,87 +7,27 @@ import {
 } from '../../components/QuantityButtonsGroup';
 import { useBurgerMenuContext } from '../../context/BurgerMenuProvider';
 import { useShoppingCartContext } from '../../context/ShoppingCartProvider';
-import BurgerMenu, { DashedLine } from '../burgerMenu/BurgerMenu';
+import { DashedLine } from '../burgerMenu/BurgerMenu.style';
 import {
   BackButtonWrapper,
   BackButton,
-} from '../catalogue/mobileParameters/MobileParameters';
+} from '../catalogue/mobileParameters/MobileParameters.style';
 import {
   CartItemDescription,
   Trashbin,
   Weight,
 } from '../shoppingCart/ShoppingCart.style';
-
-const Wrapper = styled.div<{ opened?: boolean }>`
-  position: relative;
-  padding: 0 15px;
-
-  display: flex;
-  flex-direction: column;
-`;
-
-const Header = styled(PageHeader)`
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 120%;
-  margin-bottom: 19px;
-`;
-
-const MobileCartItem = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 30px;
-`;
-
-const Image = styled.div`
-  height: 197px;
-  width: 290px;
-  margin-bottom: 14px;
-
-  > img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-`;
-
-const Title = styled.div`
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 24px;
-  color: var(--black);
-  margin-bottom: 10px;
-`;
-
-const Flex = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 10px;
-`;
-
-const VerticalLine = styled.div`
-  height: 49px;
-  width: 0px;
-  opacity: 0.2;
-  border: 1px dashed #3f4e65;
-`;
-
-const Price = styled.div`
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 130%;
-  color: var(--black);
-`;
-
-const Wrap = styled.div`
-  > div {
-    margin-top: 0px;
-    padding-top: 20px;
-    margin-left: 0px;
-    width: 340px;
-  }
-`;
+import {
+  Wrapper,
+  Header,
+  MobileCartItem,
+  Image,
+  Title,
+  Flex,
+  VerticalLine,
+  Price,
+  Separator,
+} from './MobileShoppingCart.style';
 
 function MobileShoppingCart() {
   const { openMenu, setOpenMenu } = useBurgerMenuContext();
@@ -161,6 +99,7 @@ function MobileShoppingCart() {
                   <img src='./icons/trashbin.svg' alt='trashbin' />
                 </Trashbin>
               </Flex>
+              <Separator />
             </MobileCartItem>
           );
         })}

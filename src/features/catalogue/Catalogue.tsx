@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import Container from '../../components/Container';
 import MobileContainer from '../../components/MobileContainer';
 import { CareType } from '../../context/GoodsContextProvider';
-import data from '../../data/data.json';
 import useMediaQuery from '../../hooks/useMediaQuery';
 import CatalogueGrid from './grid/CatalogueGrid';
 import CatalogueHeader from './header/CatalogueHeader';
@@ -45,7 +44,7 @@ function Catalogue() {
   const [careType, setCareType] = useState<CareType | ''>('');
   const [selectedSort, setSelectedSort] = useState<Selectors>('priceDown');
 
-  const mobileMedia = useMediaQuery('(max-width: 1200px)');
+  const mobileMedia = useMediaQuery('(max-width: 900px)');
 
   const childProps = {
     min,

@@ -1,58 +1,20 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+
 import { useBurgerMenuContext } from '../../../context/BurgerMenuProvider';
 import { useGoodsContext } from '../../../context/GoodsContextProvider';
 import filterGoods from '../../../utils/filterGoods';
 import getNumbersBefore from '../../../utils/getNumbersBefore';
 import sortGoods from '../../../utils/sortGoods';
-import { ICatalogueParameters, Selectors } from '../Catalogue';
+import { ICatalogueParameters } from '../Catalogue';
+import {
+  Wrapper,
+  GridWrapper,
+  Pagination,
+  Number,
+  ArrowLeft,
+  ArrowRight,
+} from './CatalogueGrid.style';
 import GridCell from './gridCell/GridCell';
-
-const Wrapper = styled.div<{ opened: boolean }>`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-`;
-
-const GridWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 21px;
-  margin-top: 10px;
-  margin-bottom: 50px;
-`;
-
-const Pagination = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  align-self: center;
-`;
-
-const Number = styled.div<{ highlighted: boolean }>`
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  user-select: none;
-  background: ${(props) =>
-    props.highlighted
-      ? 'linear-gradient(90deg, rgba(255, 198, 80, 0.3) 0%, rgba(254, 202, 110, 0.3) 97.25%)'
-      : '#fff'};
-`;
-
-const ArrowLeft = styled.div`
-  margin-right: 33px;
-  cursor: pointer;
-`;
-
-const ArrowRight = styled.div`
-  margin-left: 33px;
-  cursor: pointer;
-`;
 
 function CatalogueGrid(props: ICatalogueParameters) {
   const { goods } = useGoodsContext();
@@ -78,6 +40,7 @@ function CatalogueGrid(props: ICatalogueParameters) {
 
   const [currentPage, setCurrentPage] = useState<number>(1);
 
+  // логика для пагинации, находим число страниц и дробим товары по 15. Показываем в зависимости от страницы
   const sortedGoods = sortGoods(filteredGoods, selectedSort);
   const pages = getNumbersBefore(Math.ceil(sortedGoods.length / 15));
   const paginatedGoods = sortedGoods.slice(
@@ -95,6 +58,7 @@ function CatalogueGrid(props: ICatalogueParameters) {
     setCurrentPage(currentPage - 1);
   };
 
+  // скролл к началу страницы при смене страницы
   useEffect(() => {
     document.documentElement.scrollTo({
       top: 0,

@@ -1,7 +1,5 @@
 import { useLocation } from 'react-router-dom';
-import styled from 'styled-components';
 import Container from '../../components/Container';
-import Light from '../../components/Light';
 import { useGoodsContext } from '../../context/GoodsContextProvider';
 import useMediaQuery from '../../hooks/useMediaQuery';
 import MobileItemCard from '../mobileItemCard/MobileItemCard';
@@ -17,7 +15,7 @@ import ItemCardImage from './ItemCardImage/ItemCardImage';
 import ItemCardInfo from './ItemCardInfo/ItemCardInfo';
 
 function ItemCard() {
-  const mobileMedia = useMediaQuery('(max-width: 1200px)');
+  const mobileMedia = useMediaQuery('(max-width: 900px)');
 
   const location = useLocation();
   const barcode = location.pathname.split('/').at(-1);
