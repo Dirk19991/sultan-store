@@ -11,6 +11,8 @@ interface IAdminItem {
   item: Item | null;
   setSelectedItem: React.Dispatch<React.SetStateAction<Item | null>>;
   setOption: React.Dispatch<React.SetStateAction<string>>;
+  success: boolean;
+  setSuccess: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 interface Option {
@@ -75,7 +77,7 @@ export const Label = styled.label`
 `;
 
 function AdminItem(props: IAdminItem) {
-  const { item, setSelectedItem, setOption } = props;
+  const { item, setSelectedItem, setOption, success, setSuccess } = props;
   const { goods, addItem, updateItem, removeItem } = useGoodsContext();
 
   const [editableCareType, setEditableCareType] = useState<CareType[] | null>(
@@ -170,9 +172,15 @@ function AdminItem(props: IAdminItem) {
     if (item.id === lastId + 1) {
       addItem(updatedItem);
       localStorage.setItem('goods', JSON.stringify([...goods, updatedItem]));
+      setOption('choose');
+      setSelectedItem(null);
+      setSuccess(true);
     } else {
       updateItem(item.id, updatedItem);
       localStorage.setItem('goods', JSON.stringify(goods));
+      setOption('choose');
+      setSelectedItem(null);
+      setSuccess(true);
     }
   };
 
@@ -317,6 +325,7 @@ function AdminItem(props: IAdminItem) {
           <SaveButton type='submit'>Сохранить изменения</SaveButton>
         </Form>
       )}
+      {success && <div>Успешно!</div>}
       {item && (
         <DeleteButton onClick={deleteItemHandler} type='submit'>
           Удалить товар

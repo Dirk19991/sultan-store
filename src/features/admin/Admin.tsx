@@ -50,7 +50,10 @@ function Admin() {
   const [selectedItem, setSelectedItem] = useState<Item | null>(null);
   const [option, setOption] = useState<string>('choose');
 
+  const [success, setSuccess] = useState<boolean>(false);
+
   const selectedItemHandler = (value: string) => {
+    setSuccess(false);
     if (value === 'add') {
       const lastId = goods.sort((a, b) => b.id - a.id)[0].id;
       const newItem: Item = {
@@ -101,6 +104,8 @@ function Admin() {
             <Add value='add'>Добавить новый товар</Add>
           </Select>
           <AdminItem
+            success={success}
+            setSuccess={setSuccess}
             setOption={setOption}
             setSelectedItem={setSelectedItem}
             item={selectedItem}
