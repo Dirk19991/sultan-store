@@ -11,7 +11,7 @@ function Header() {
   return mobileMedia ? (
     <MobileHeader />
   ) : (
-    <>
+    <header>
       <Container>
         <UpperHeader />
       </Container>
@@ -20,7 +20,7 @@ function Header() {
         <LowerHeader />
       </Container>
       <BottomLine />
-    </>
+    </header>
   );
 }
 export default Header;

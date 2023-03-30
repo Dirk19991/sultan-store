@@ -34,9 +34,9 @@ function App() {
         </Wrapper>
       </Modal>
       <Header />
-      <div>
+      <main>
         <Outlet />
-      </div>
+      </main>
       <Footer />
       <ScrollToTop />
     </>
