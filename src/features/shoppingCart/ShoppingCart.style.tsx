@@ -136,3 +136,15 @@ export const Trashbin = styled.div`
     background-color: rgb(248, 180, 45);
   }
 `;
+
+export const Order = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 50px;
+  margin-bottom: 100px;
+`;
+
+export const Thanks = styled(CartHeader)`
+  margin-top: 50px;
+`;

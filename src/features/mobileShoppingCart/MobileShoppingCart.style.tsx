@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import PageHeader from '../../components/PageHeader';
+import YellowButton from '../../components/YellowButton';
+import { CartHeader } from '../shoppingCart/ShoppingCart.style';
 
 export const Wrapper = styled.div<{ opened?: boolean }>`
   position: relative;
@@ -70,3 +72,20 @@ export const Separator = styled.div`
   margin-bottom: 20px;
   margin-top: 20px;
 `;
+
+export const Sum = styled.div`
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 130%;
+  color: var(--black);
+  align-self: center;
+  margin-bottom: 25px;
+`;
+
+export const OrderButton = styled(YellowButton)`
+  width: 290px;
+  height: 80px;
+  margin-bottom: 50px;
+`;
+
+export const Thanks = styled(Header)``;

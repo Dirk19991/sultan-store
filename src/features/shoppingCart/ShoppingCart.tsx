@@ -26,23 +26,13 @@ import {
   DashedHorizontal,
   DashedVertical,
   ItemPrice,
+  Order,
   PriceWrapper,
+  Thanks,
   Trashbin,
   Weight,
   Wrapper,
 } from './ShoppingCart.style';
-
-const Order = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  margin-top: 50px;
-  margin-bottom: 100px;
-`;
-
-const Thanks = styled(CartHeader)`
-  margin-top: 50px;
-`;
 
 function ShoppingCart() {
   const {

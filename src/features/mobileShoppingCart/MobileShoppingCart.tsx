@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import MobileContainer from '../../components/MobileContainer';
 import {
@@ -7,6 +8,8 @@ import {
 } from '../../components/QuantityButtonsGroup';
 import { useBurgerMenuContext } from '../../context/BurgerMenuProvider';
 import { useShoppingCartContext } from '../../context/ShoppingCartProvider';
+import getCartQuantity from '../../utils/getCartQuantity';
+import getCartSum from '../../utils/getCartSum';
 import { DashedLine } from '../burgerMenu/BurgerMenu.style';
 import {
   BackButtonWrapper,
@@ -27,17 +30,36 @@ import {
   VerticalLine,
   Price,
   Separator,
+  Sum,
+  OrderButton,
+  Thanks,
 } from './MobileShoppingCart.style';
 
 function MobileShoppingCart() {
   const { openMenu, setOpenMenu } = useBurgerMenuContext();
-  const { items, decreaseCartItems, addCartItem, removeCartItem } =
-    useShoppingCartContext();
+  const {
+    items,
+    decreaseCartItems,
+    addCartItem,
+    removeCartItem,
+    removeAllItems,
+  } = useShoppingCartContext();
 
   const menuHandler = (e: HTMLElement) => {
     if (e.dataset.class === 'wrapper') {
       setOpenMenu(false);
     }
+  };
+
+  const [ordered, setOrdered] = useState(false);
+
+  useEffect(() => {
+    setOrdered(false);
+  }, []);
+
+  const makeOrder = () => {
+    setOrdered(true);
+    removeAllItems();
   };
 
   return (
@@ -57,6 +79,7 @@ function MobileShoppingCart() {
         </Link>
         <Header>Корзина</Header>
         <DashedLine />
+        {ordered && <Thanks>Спасибо за заказ!</Thanks>}
 
         {items.map((item) => {
           const iconSource =
@@ -103,6 +126,12 @@ function MobileShoppingCart() {
             </MobileCartItem>
           );
         })}
+        {getCartQuantity(items) !== 0 && (
+          <>
+            <Sum>{getCartSum(items)} ₸</Sum>
+            <OrderButton onClick={makeOrder}>Оформить заказ</OrderButton>
+          </>
+        )}
       </Wrapper>
     </MobileContainer>
   );
