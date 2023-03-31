@@ -57,6 +57,14 @@ function MobileShoppingCart() {
     setOrdered(false);
   }, []);
 
+  useEffect(() => {
+    document.documentElement.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'auto',
+    });
+  }, [ordered]);
+
   const makeOrder = () => {
     setOrdered(true);
     removeAllItems();
