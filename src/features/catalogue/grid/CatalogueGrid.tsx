@@ -5,7 +5,7 @@ import { useGoodsContext } from '../../../context/GoodsContextProvider';
 import filterGoods from '../../../utils/filterGoods';
 import getNumbersBefore from '../../../utils/getNumbersBefore';
 import sortGoods from '../../../utils/sortGoods';
-import { ICatalogueParameters } from '../Catalogue';
+import { ICatalogueParameters, IGridProps } from '../Catalogue';
 import {
   Wrapper,
   GridWrapper,
@@ -16,7 +16,7 @@ import {
 } from './CatalogueGrid.style';
 import GridCell from './gridCell/GridCell';
 
-function CatalogueGrid(props: ICatalogueParameters) {
+function CatalogueGrid(props: IGridProps) {
   const { goods } = useGoodsContext();
   const {
     min,

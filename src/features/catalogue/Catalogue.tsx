@@ -18,11 +18,25 @@ export interface ICatalogueParameters {
   manufacturer: string;
   checkedManufacturers: string[];
   careType: CareType | '';
-  selectedSort: Selectors;
   setMin: Dispatch<SetStateAction<number>>;
   setMax: Dispatch<SetStateAction<number>>;
   setManufacturer: Dispatch<SetStateAction<string>>;
   setCheckedManufacturers: Dispatch<SetStateAction<string[]>>;
+  setCareType: Dispatch<SetStateAction<CareType | ''>>;
+  setSelectedSort: Dispatch<SetStateAction<Selectors>>;
+}
+
+export interface IGridProps {
+  min: number;
+  max: number;
+  manufacturer: string;
+  checkedManufacturers: string[];
+  careType: CareType | '';
+  selectedSort: Selectors;
+}
+
+export interface ICatalogueHeaderProps {
+  careType: CareType | '';
   setCareType: Dispatch<SetStateAction<CareType | ''>>;
   setSelectedSort: Dispatch<SetStateAction<Selectors>>;
 }
@@ -46,32 +60,46 @@ function Catalogue() {
 
   const mobileMedia = useMediaQuery('(max-width: 900px)');
 
-  const childProps = {
+  const gridProps = {
     min,
     max,
     manufacturer,
     checkedManufacturers,
+    careType,
+    selectedSort,
+  };
+
+  const caltalogueHeaderProps = {
+    careType,
+    setCareType,
+    setSelectedSort,
+  };
+
+  const parametersProps = {
+    min,
+    max,
+    manufacturer,
+    checkedManufacturers,
+    careType,
     setMin,
     setMax,
     setManufacturer,
     setCheckedManufacturers,
-    careType,
-    setCareType,
-    selectedSort,
     setSelectedSort,
+    setCareType,
   };
 
   return mobileMedia ? (
     <MobileContainer>
-      <MobileParameters {...childProps} />
-      <CatalogueGrid {...childProps} />
+      <MobileParameters {...parametersProps} />
+      <CatalogueGrid {...gridProps} />
     </MobileContainer>
   ) : (
     <Container>
-      <CatalogueHeader {...childProps} />
+      <CatalogueHeader {...caltalogueHeaderProps} />
       <Wrapper>
-        <CatalogueParameters {...childProps} />
-        <CatalogueGrid {...childProps} />
+        <CatalogueParameters {...parametersProps} />
+        <CatalogueGrid {...gridProps} />
       </Wrapper>
     </Container>
   );

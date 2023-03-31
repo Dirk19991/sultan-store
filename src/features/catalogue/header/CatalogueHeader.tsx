@@ -1,7 +1,11 @@
 import PageHeader from '../../../components/PageHeader';
 import { CareType } from '../../../context/GoodsContextProvider';
 import useMediaQuery from '../../../hooks/useMediaQuery';
-import { ICatalogueParameters, Selectors } from '../Catalogue';
+import {
+  ICatalogueHeaderProps,
+  ICatalogueParameters,
+  Selectors,
+} from '../Catalogue';
 import {
   Wrapper,
   Breadcrumbs,
@@ -15,7 +19,7 @@ import {
   FilterElement,
 } from './CatalogueHeader.style';
 
-function CatalogueHeader(props: ICatalogueParameters) {
+function CatalogueHeader(props: ICatalogueHeaderProps) {
   const { careType, setCareType, setSelectedSort } = props;
 
   // делает flex-wrap когда компоненент перестает вмещаться
