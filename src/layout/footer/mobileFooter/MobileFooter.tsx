@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import FooterHeader from '../../../components/FooterHeader';
 import Light from '../../../components/Light';
 import MobileContainer from '../../../components/MobileContainer';
@@ -18,6 +19,7 @@ import {
   Payment,
   MessengerLinks,
   Messengers,
+  AdminPanel,
 } from '../Footer.style';
 import {
   Wrapper,
@@ -140,6 +142,9 @@ function MobileFooter() {
                 <img src='./icons/telegram.svg' alt='telegram' />
               </div>
             </MessengerLinks>
+            <AdminPanel>
+              <Link to='/admin'>Админка</Link>
+            </AdminPanel>
           </MobileMessengers>
         </ContactsWrapper>
       </MobileFooterContainer>

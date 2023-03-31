@@ -25,6 +25,7 @@ export const Burger = styled.div`
 
 export const Logo = styled.div`
   margin-left: 2px;
+  cursor: pointer;
 `;
 
 export const ShoppingCart = styled.div`

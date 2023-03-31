@@ -34,9 +34,11 @@ function MobileHeader() {
             <Burger onClick={() => setOpenMenu((prev) => !prev)}>
               <img src={iconSourse} alt='burger' />
             </Burger>
-            <Logo>
-              <img src='./icons/sultanLogoSmall.svg' alt='logo' />
-            </Logo>
+            <Link to='/'>
+              <Logo>
+                <img src='./icons/sultanLogoSmall.svg' alt='logo' />
+              </Logo>
+            </Link>
             <Link to='./cart'>
               <ShoppingCart>
                 <img src='./icons/shoppingCartSmall_black.svg' alt='cart' />
