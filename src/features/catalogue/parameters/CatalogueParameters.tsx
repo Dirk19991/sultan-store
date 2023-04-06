@@ -121,6 +121,7 @@ function CatalogueParameters(props: ICatalogueParameters) {
           onChange={(e) => setManufacturer(e.target.value)}
           value={manufacturer}
           placeholder='Поиск...'
+          type='search'
         ></ManufacturerSearch>
         <ManufacturerGlass>
           <img src='./icons/lookingGlass.svg' alt='lookingGlass' />

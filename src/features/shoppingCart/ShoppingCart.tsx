@@ -114,7 +114,10 @@ function ShoppingCart() {
                     </ItemPrice>
                     <DashedVertical height='49px' />
                   </PriceWrapper>
-                  <Trashbin onClick={() => removeCartItem(item.id)}>
+                  <Trashbin
+                    data-testid='trashbin'
+                    onClick={() => removeCartItem(item.id)}
+                  >
                     <img src='./icons/trashbin.svg' alt='trashbin' />
                   </Trashbin>
                 </CartItem>
@@ -125,7 +128,9 @@ function ShoppingCart() {
         </CartItems>
         {getCartQuantity(items) !== 0 && (
           <Order>
-            <YellowButton onClick={makeOrder}>Оформить заказ</YellowButton>
+            <YellowButton data-testid='makeOrder' onClick={makeOrder}>
+              Оформить заказ
+            </YellowButton>
             <ItemPrice>{getCartSum(items)} ₸</ItemPrice>
           </Order>
         )}

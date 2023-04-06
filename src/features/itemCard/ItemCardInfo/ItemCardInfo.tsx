@@ -82,9 +82,13 @@ function ItemCardInfo(props: IItemCardInfo) {
       <Flex>
         <Price>{currentItem.price} ₸</Price>
         <ItemButtons>
-          <ItemButton onClick={decreaseNumberHandler}>-</ItemButton>
-          <ItemQuantity>{itemsNumber}</ItemQuantity>
-          <ItemButton onClick={increaseNumberHandler}>+</ItemButton>
+          <ItemButton data-testid='decrease' onClick={decreaseNumberHandler}>
+            -
+          </ItemButton>
+          <ItemQuantity data-testid='quantity'>{itemsNumber}</ItemQuantity>
+          <ItemButton data-testid='increase' onClick={increaseNumberHandler}>
+            +
+          </ItemButton>
         </ItemButtons>
         <CartButton onClick={() => addCartItem(currentItem, itemsNumber)}>
           <CartText>В корзину</CartText>

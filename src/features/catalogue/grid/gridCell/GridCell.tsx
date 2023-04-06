@@ -32,7 +32,7 @@ function GridCell(props: IGridCell) {
     <StyledCell>
       <Link to={`/cosmetics/${item.barcode}`}>
         <Image>
-          <img src={item.imageSmall} alt='' />
+          <img src={item.imageSmall} alt={item.title} />
         </Image>
       </Link>
       <Weight>

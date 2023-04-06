@@ -6,7 +6,7 @@ export interface ShoppingCartItem extends Item {
   quantity: number;
 }
 
-interface IShoppingCartContext {
+export interface IShoppingCartContext {
   items: ShoppingCartItem[] | [];
   addCartItem: (object: Item, number?: number) => void;
   removeCartItem: (id: number) => void;
